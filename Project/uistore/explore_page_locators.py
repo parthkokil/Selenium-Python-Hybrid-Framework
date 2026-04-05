@@ -9,7 +9,7 @@ class ExplorePageLocators:
     ACCEPT_ALL_COOKIES_BUTTON = (By.XPATH, "//button[text()='Accept All Cookies']")
     ELC_LOGO_IMAGE = (By.XPATH, "//img[@title='Early Learning Centre']")
 
-    EXPLORE_LINK = (By.CSS_SELECTOR, "a[title*='Explore']")
+    EXPLORE_LINK = (By.XPATH, "//a[text()='Explore']")
     GIFT_CARDS_LINK = (By.XPATH, "//a[contains(@href,'gift-cards')]")
     OFFERS_LINK = (By.CSS_SELECTOR, "a[title='Offers']")
     BRANDS_LINK = (By.XPATH, "//a[@title='Brands']")

@@ -96,7 +96,9 @@ class HomePage:
             None
         """
         try:
-            self.helper.js_click(HomePageLocator.bikes)
+            sleep(2)
+            self.helper.js_scroll(HomePageLocator.bikes)
+            self.helper.click(HomePageLocator.bikes)
             self.logger.info(f"Bikes clicked")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_on_bikes_failure")
@@ -116,6 +118,7 @@ class HomePage:
             None
         """
         try:
+            sleep(2)
             self.helper.hover(HomePageLocator.learning_skills)
             self.logger.info(f"Learning skills hovered")
         except Exception as e:
@@ -154,12 +157,9 @@ class HomePage:
             None
         """
         try:
-            sleep(2)
             self.click_allow_cookies()
-            sleep(2)
             self.verify_elc_logo()
             self.hover_on_outdoor_toys()
-            sleep(2)
             self.click_on_bikes()
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "home_page_clutter_failure")
@@ -178,13 +178,9 @@ class HomePage:
             None
         """
         try:
-            sleep(2)
             self.click_allow_cookies()
-            sleep(2)
             self. hover_on_learning_skills()
-            sleep(3)
             self.click_on_creativity()
-            sleep(2)
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "home_page_clutter2_failure")
             self.logger.error(f"Failed in home_page_clutter2 flow: {e}")

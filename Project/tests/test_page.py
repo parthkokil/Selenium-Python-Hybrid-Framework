@@ -34,7 +34,7 @@ class TestCaseTenFooterLinks(BaseTest):
 
     logger = get_logger()
 
-    def setup_method(self):
+    def setUp(self):
         """
         Method Name: setup_method
         Author: Parth
@@ -59,7 +59,7 @@ class TestCaseTenFooterLinks(BaseTest):
                 "Setup failed for TestCaseTenFooterLinks."
             ) from exc
 
-    def teardown_method(self):
+    def tearDown(self):
         """
         Method Name: teardown_method
         Author: Parth

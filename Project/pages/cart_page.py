@@ -75,9 +75,7 @@ class CartPage:
             None
         """
         try:
-            # el = self.driver.find_element(*CartPageLocator.continue_button)
-            # txt = el.get_attribute("innerText").strip()  # more reliable than .text
-            # self.helper.verify_text(CartPageLocator.continue_button, "innerText")
+            
             self.helper.verify_attribute(CartPageLocator.continue_button,"innerText","Continue Shopping")
             self.logger.info("Continue shopping text present")
             Screenshot.capture_screenshot(self.driver, "cart")
