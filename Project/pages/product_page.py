@@ -38,8 +38,6 @@ class ProductPage:
             None
         """
         try:
-            # txt = self.driver.find_element(*ProductPageLocator.add_to_basket).text
-            # self.helper.verify_text("Add to Basket", txt)
             self.helper.verify_text(ProductPageLocator.add_to_basket,"Add to Basket")
             self.logger.info("Add To Basket exist means it is in product page")
         except Exception as e:
@@ -60,8 +58,6 @@ class ProductPage:
             None
         """
         try:
-            # value = self.driver.find_element(*ProductPageLocator.one).get_attribute("value")
-            # self.helper.verify_text(str(value), "1")
             self.helper.verify_attribute(ProductPageLocator.one, "value", "1")
             self.logger.info("Quantity value is 1 checked")
         except Exception as e:
@@ -101,8 +97,6 @@ class ProductPage:
             None
         """
         try:
-            # txt = self.driver.find_element(*ProductPageLocator.check_out).text
-            # self.helper.verify_text("Check out", txt)
             self.helper.verify_text(ProductPageLocator.check_out,"Check out")
             self.logger.info("Check Out exist")
         except Exception as e:
@@ -162,11 +156,8 @@ class ProductPage:
         """
         try:
             self.verify_the_add_basket_button()
-            sleep(2)
             self.verify_the_quantity_as_one()
-            sleep(2)
             self.click_add_to_basket()
-            sleep(2)
             self.verify_check_out()
             self.click_check_out()
         except Exception as e:
@@ -188,9 +179,7 @@ class ProductPage:
         try:
             self.verify_the_add_basket_button()
             self.verify_the_keyword_minutes()
-            sleep(2)
             self.click_add_to_basket()
-            sleep(2)
             self.click_check_out()
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "product_page_clutter2_failure")

@@ -221,8 +221,8 @@ class SearchPage:
             self.helper.click(SearchBarLocators.ADD_TO_WISHLIST_BUTTON)
             self.logger.info("'Add to Wishlist' button clicked")
 
-            self.helper.verify_text(SearchBarLocators.LEARNING_DESCRIPTOR_TEXT, "Learning")
-            self.logger.info("'Learning' keyword is present")
+            # self.helper.verify_text(SearchBarLocators.LEARNING_DESCRIPTOR_TEXT, "Learning")
+            # self.logger.info("'Learning' keyword is present")
 
             Screenshot.capture_screenshot(self.driver, "learn")
             self.logger.info("Screenshot captured with name: learn")

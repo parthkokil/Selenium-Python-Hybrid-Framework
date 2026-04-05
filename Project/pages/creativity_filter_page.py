@@ -75,7 +75,6 @@ class CreativityFilterPage:
             None
         """
         try:
-            sleep(3)
             self.verify_creativity_filter_page()
             self.click_first_product()
         except Exception as e:
