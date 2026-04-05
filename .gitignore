@@ -4,7 +4,10 @@ venv/
 allure-results/
 allure-report/
 logs/
-screenshots/
+screenshot/
 .env
-config.init
+config.ini
+config/
+config/
 testdata/
+Report/
