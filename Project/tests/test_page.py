@@ -13,10 +13,10 @@ from Project.base import BaseTest
 from pages.footer_links_page import CaseTenPage
 from pages.home_page import HomePage
 from pages.huffy_page import HuffyPage
-# from pages.newborn_gifts_page import NewbornGiftsPage
+from pages.newborn_gifts_page import NewbornGiftsPage
 from pages.product_page import ProductPage
 from pages.search_page import SearchPage
-# from pages.soft_toys_page import SoftToysPage
+from pages.soft_toys_page import SoftToysPage
 from pages.elc_footer_support_page import ElcFooterSupportPage
 from utilities.logger import get_logger
 from utilities.config_reader import ConfigReader
@@ -75,6 +75,45 @@ class TestCaseTenFooterLinks(BaseTest):
             raise RuntimeError(
                 "Teardown failed for TestCaseTenFooterLinks."
             ) from exc
+
+    # 1st testCase
+    @pytest.mark.smoke
+    def test_newborn_gifts_navigation(self):
+        """
+        Author: Karuna
+        Description: Validates newborn gifts navigation.
+        """
+        try:
+            newborn_gifts_page = NewbornGiftsPage(self.driver, self.logger)
+            newborn_gifts_page.clutter()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_newborn_gifts_navigation_failure"
+            )
+            self.logger.error(
+                "Newborn gifts navigation failed: %s", exc
+            )
+            raise
+
+    # 2nd testCase
+    @pytest.mark.smoke
+    def test_soft_toys_navigation(self):
+        """
+        Author: Karuna
+        Description: Validates soft toys navigation.
+        """
+        try:
+            soft_toys_page = SoftToysPage(self.driver, self.logger)
+            soft_toys_page.clutter2()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_soft_toys_navigation_failure"
+            )
+            self.logger.error(
+                "Soft toys navigation failed: %s", exc
+            )
+            raise
+ 
 
     # 3rd TestCase
     @pytest.mark.smoke
