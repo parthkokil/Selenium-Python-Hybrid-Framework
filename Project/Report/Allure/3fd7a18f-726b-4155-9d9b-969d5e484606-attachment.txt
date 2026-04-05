@@ -1,0 +1,56 @@
+[32mINFO    [0m framework_logger:test_page.py:53 Browser launched and application opened: https://www.elc.co.uk/
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Accept All Cookies
+[32mINFO    [0m framework_logger:footer_links_page.py:19 scroll down
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 About us #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked About us
+[32mINFO    [0m framework_logger:footer_links_page.py:25 click on the about us
+[32mINFO    [0m framework_logger:footer_links_page.py:29 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:32 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:35 navigate back to home page done from about us
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Store finder
+[32mINFO    [0m framework_logger:footer_links_page.py:41 click on the store finder in footer
+[32mINFO    [0m framework_logger:footer_links_page.py:45 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:48 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:51 navigate back to home page done from store finder
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 WEEE Regulations #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked WEEE Regulations
+[32mINFO    [0m framework_logger:footer_links_page.py:57 click on the wee regulations in footer
+[32mINFO    [0m framework_logger:footer_links_page.py:61 switch to new tab done from wee regulations
+[32mINFO    [0m framework_logger:footer_links_page.py:66 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:69 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:74 back to home page tab from wee regulations
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Press #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Press
+[32mINFO    [0m framework_logger:footer_links_page.py:80 click on the press in footer
+[32mINFO    [0m framework_logger:footer_links_page.py:84 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:87 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:90 navigate back to home page done from press
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Affiliates
+[32mINFO    [0m framework_logger:footer_links_page.py:96 click on the affiliates in footer
+[32mINFO    [0m framework_logger:footer_links_page.py:100 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:103 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:106 navigate back to home page done from affiliates
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Careers #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Careers
+[32mINFO    [0m framework_logger:footer_links_page.py:112 click on the careers in footer
+[32mINFO    [0m framework_logger:footer_links_page.py:115 switch to new tab done from careers
+[32mINFO    [0m framework_logger:footer_links_page.py:121 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:124 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:128 back to home page tab from careers
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Gift cards #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Gift cards
+[32mINFO    [0m framework_logger:footer_links_page.py:135 click on the gift cards in footer
+[32mINFO    [0m framework_logger:footer_links_page.py:141 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:145 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:148 navigate back to home page done from gift cards
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Klarna #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Klarna
+[32mINFO    [0m framework_logger:footer_links_page.py:155 click on the klarna in footer
+[32mINFO    [0m framework_logger:footer_links_page.py:160 title verified
+[32mINFO    [0m framework_logger:footer_links_page.py:163 url verified
+[32mINFO    [0m framework_logger:footer_links_page.py:166 navigate back to home page done from klarna
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Useful links #absolute
+[32mINFO    [0m framework_logger:footer_links_page.py:174 Useful links keyword verified
+[32mINFO    [0m framework_logger:footer_links_page.py:179 screenshot captured for case 10
+[32mINFO    [0m framework_logger:test_page.py:72 Browser closed successfully.

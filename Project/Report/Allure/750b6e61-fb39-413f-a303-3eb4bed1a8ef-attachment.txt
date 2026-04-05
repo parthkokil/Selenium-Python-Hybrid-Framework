@@ -1,0 +1,24 @@
+An error occurred in js_click: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=138.0.7204.157); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+#0 0x564116fe27da <unknown>
+#1 0x564116a872e0 <unknown>
+#2 0x564116a8df28 <unknown>
+#3 0x564116a90a6a <unknown>
+#4 0x564116b2575e <unknown>
+#5 0x564116afe8b2 <unknown>
+#6 0x564116b2471c <unknown>
+#7 0x564116afe683 <unknown>
+#8 0x564116acab5b <unknown>
+#9 0x564116acbf31 <unknown>
+#10 0x564116fa772b <unknown>
+#11 0x564116fab534 <unknown>
+#12 0x564116f8e229 <unknown>
+#13 0x564116fac0d8 <unknown>
+#14 0x564116f7261f <unknown>
+#15 0x564116fcfdd8 <unknown>
+#16 0x564116fcffb6 <unknown>
+#17 0x564116fe1af6 <unknown>
+#18 0x78876f0c7aa4 <unknown>
+#19 0x78876f154c3c <unknown>
+

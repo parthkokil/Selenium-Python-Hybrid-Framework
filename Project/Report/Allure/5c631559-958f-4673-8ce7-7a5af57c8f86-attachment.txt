@@ -1,0 +1,46 @@
+An error occurred in js_scroll: Message: 
+Stacktrace:
+#0 0x56ee380e07da <unknown>
+#1 0x56ee37b852e0 <unknown>
+#2 0x56ee37bd6e00 <unknown>
+#3 0x56ee37bd6ff1 <unknown>
+#4 0x56ee37c25324 <unknown>
+#5 0x56ee37bfc8dd <unknown>
+#6 0x56ee37c2271c <unknown>
+#7 0x56ee37bfc683 <unknown>
+#8 0x56ee37bc8b5b <unknown>
+#9 0x56ee37bc9f31 <unknown>
+#10 0x56ee380a572b <unknown>
+#11 0x56ee380a9534 <unknown>
+#12 0x56ee3808c229 <unknown>
+#13 0x56ee380aa0d8 <unknown>
+#14 0x56ee3807061f <unknown>
+#15 0x56ee380cddd8 <unknown>
+#16 0x56ee380cdfb6 <unknown>
+#17 0x56ee380dfaf6 <unknown>
+#18 0x7e09b3d76aa4 <unknown>
+#19 0x7e09b3e03c3c <unknown>
+
+An error occurred in js_click: Message: 
+Stacktrace:
+#0 0x56ee380e07da <unknown>
+#1 0x56ee37b852e0 <unknown>
+#2 0x56ee37bd6e00 <unknown>
+#3 0x56ee37bd6ff1 <unknown>
+#4 0x56ee37c25324 <unknown>
+#5 0x56ee37bfc8dd <unknown>
+#6 0x56ee37c2271c <unknown>
+#7 0x56ee37bfc683 <unknown>
+#8 0x56ee37bc8b5b <unknown>
+#9 0x56ee37bc9f31 <unknown>
+#10 0x56ee380a572b <unknown>
+#11 0x56ee380a9534 <unknown>
+#12 0x56ee3808c229 <unknown>
+#13 0x56ee380aa0d8 <unknown>
+#14 0x56ee3807061f <unknown>
+#15 0x56ee380cddd8 <unknown>
+#16 0x56ee380cdfb6 <unknown>
+#17 0x56ee380dfaf6 <unknown>
+#18 0x7e09b3d76aa4 <unknown>
+#19 0x7e09b3e03c3c <unknown>
+

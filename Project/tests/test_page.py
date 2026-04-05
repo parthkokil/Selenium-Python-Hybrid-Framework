@@ -9,7 +9,7 @@ from pages.creativity_filter_page import CreativityFilterPage
 from pages.creativity_page import CreativityPage
 from pages.disney_page import DisneyPage
 from pages.explore_page import ExplorePage
-from Project.base import BaseTest
+from base import BaseTest
 from pages.footer_links_page import CaseTenPage
 from pages.home_page import HomePage
 from pages.huffy_page import HuffyPage
@@ -34,7 +34,7 @@ class TestCaseTenFooterLinks(BaseTest):
 
     logger = get_logger()
 
-    def setup_method(self):
+    def setUp(self):
         """
         Method Name: setup_method
         Author: Parth
@@ -59,7 +59,7 @@ class TestCaseTenFooterLinks(BaseTest):
                 "Setup failed for TestCaseTenFooterLinks."
             ) from exc
 
-    def teardown_method(self):
+    def tearDown(self):
         """
         Method Name: teardown_method
         Author: Parth
