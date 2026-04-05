@@ -9,4 +9,4 @@ class HuffyPageLocator:
 
     toddler_bikes = (By.XPATH, "//span[text()='Toddler Bikes']")
     search = (By.XPATH, "//span[text()='Search by brand']")
-    disney = (By.XPATH, "//span[text()='Disney']")
+    disney = (By.XPATH, "//span[@class='facet__list__label']")
