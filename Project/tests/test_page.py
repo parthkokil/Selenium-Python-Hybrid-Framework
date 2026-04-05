@@ -17,7 +17,7 @@ from pages.huffy_page import HuffyPage
 from pages.product_page import ProductPage
 from pages.search_page import SearchPage
 # from pages.soft_toys_page import SoftToysPage
-# from pages.elc_footer_support_page import ElcFooterSupportPage
+from pages.elc_footer_support_page import ElcFooterSupportPage
 from utilities.logger import get_logger
 from utilities.config_reader import ConfigReader
 from utilities.screenshot import Screenshot
@@ -216,6 +216,25 @@ class TestCaseTenFooterLinks(BaseTest):
 
     # 9th Test Case
     @pytest.mark.smoke
+    def test_elc_support_footer_flow(self):
+        """
+        Author: Sasikumar
+        Description: Executes Test Case 9 flow.
+        """
+        try:
+            test_case_nine_page = ElcFooterSupportPage(self.driver, self.logger)
+            test_case_nine_page.elc_footer_pages_flow()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_case_nine_flow_failure"
+            )
+            self.logger.error(
+                "Test Case 9 flow failed: %s", exc
+            )
+            raise
+
+    # 10th TestCase
+    @pytest.mark.smoke
     def test_case_ten_footer_links_navigation(self):
         """
         Author: Parth
@@ -232,3 +251,4 @@ class TestCaseTenFooterLinks(BaseTest):
                 "Footer links navigation failed: %s", exc
             )
             raise
+    
