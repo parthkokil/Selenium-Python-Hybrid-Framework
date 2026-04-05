@@ -1,10 +1,12 @@
 from selenium.webdriver.common.by import By
 
 
-class CreativityFilterPageLocator:
+class CreativityPageLocator:
     """
-    Locator class for Creativity Filter page
+    Locator class for Creativity page
     Author: Saptarshi
     """
 
-    first_product = (By.XPATH, "//a[@class='thumb clickedObjectIDsAfterSearch']")
+    arts_and_craft = (By.XPATH, "//span[text()='Arts &amp; Crafts']")
+    Creativity = (By.XPATH, "//span[text()='Creativity']")
+ 
