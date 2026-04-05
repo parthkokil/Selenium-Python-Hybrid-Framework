@@ -1,10 +1,9 @@
 import pytest
 from base import BaseTest
-from selenium import webdriver
 
 # from pages.bikes_page import BikesPage
 # from pages.brands_page import BrandsPage
-# from pages.car_page import CarPage
+from pages.car_page import CarPage
 # from pages.cart_page import CartPage
 # from pages.creativity_filter_page import CreativityFilterPage
 # from pages.creativity_page import CreativityPage
@@ -16,7 +15,7 @@ from pages.footer_links_page import CaseTenPage
 # from pages.huffy_page import HuffyPage
 # from pages.newborn_gifts_page import NewbornGiftsPage
 # from pages.product_page import ProductPage
-# from pages.search_page import SearchPage
+from pages.search_page import SearchPage
 # from pages.soft_toys_page import SoftToysPage
 # from pages.elc_footer_support_page import ElcFooterSupportPage
 from utilities.logger import get_logger
@@ -77,6 +76,48 @@ class TestCaseTenFooterLinks(BaseTest):
                 "Teardown failed for TestCaseTenFooterLinks."
             ) from exc
 
+
+    # 7th Test Case
+    @pytest.mark.smoke
+    def test_search_functionality_flow(self):
+        """
+        Author: Ashutosh
+        Description: Validates search workflow.
+        """
+        try:
+            search_page = SearchPage(self.driver, self.logger)
+            search_page.work_flow()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_search_functionality_flow_failure"
+            )
+            self.logger.error(
+                "Search functionality flow failed: %s", exc
+            )
+            raise
+
+
+    # 8th Test Case
+    @pytest.mark.smoke
+    def test_car_category_navigation(self):
+        """
+        Author: Ashutosh
+        Description: Validates car category navigation.
+        """
+        try:
+            car_page = CarPage(self.driver, self.logger)
+            car_page.work_flow()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_car_category_navigation_failure"
+            )
+            self.logger.error(
+                "Car category navigation failed: %s", exc
+            )
+            raise
+
+
+    # 9th Test Case
     @pytest.mark.smoke
     def test_case_ten_footer_links_navigation(self):
         """
