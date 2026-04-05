@@ -77,7 +77,8 @@ class CreativityPage:
             None
         """
         try:
-            self.helper.js_click(CreativityPageLocator.Creativity)
+            self.helper.js_scroll(CreativityPageLocator.Creativity)
+            self.helper.click(CreativityPageLocator.Creativity)
             self.logger.info("creativity option clicked")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_creativity_failure")
@@ -96,7 +97,6 @@ class CreativityPage:
             None
         """
         try:
-            sleep(3)
             self.verify_creativity_page()
             self.scroll_down_and_click_art_and_crafts()
             self.click_creativity()

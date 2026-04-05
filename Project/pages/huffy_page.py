@@ -37,7 +37,8 @@ class HuffyPage:
             None
         """
         try:
-            self.helper.js_click(HuffyPageLocator.toddler_bikes)
+            self.helper.js_scroll(HuffyPageLocator.toddler_bikes)
+            self.helper.click(HuffyPageLocator.toddler_bikes)
             self.logger.info(f"Toddler bikes clicked")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_toddler_bikes_failure")
@@ -56,8 +57,6 @@ class HuffyPage:
             None
         """
         try:
-            # txt = self.driver.find_element(*HuffyPageLocator.search).text
-            # self.helper.verify_text(txt, "Search")
             self.helper.verify_text(HuffyPageLocator.search,"Search")
             self.logger.info(f"Keyword search clicked")
         except Exception as e:
@@ -77,7 +76,8 @@ class HuffyPage:
             None
         """
         try:
-            self.helper.js_click(HuffyPageLocator.disney)
+            self.helper.js_scroll(HuffyPageLocator.disney)
+            self.helper.click(HuffyPageLocator.disney)
             self.logger.info(f"Disney page will appear")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_disney_failure")
@@ -97,9 +97,7 @@ class HuffyPage:
         """
         try:
             self.click_toddler_bikes()
-            sleep(2)
             self.verify_keyword_search()
-            sleep(2)
             self.click_disney()
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "huffy_page_clutter_failure")

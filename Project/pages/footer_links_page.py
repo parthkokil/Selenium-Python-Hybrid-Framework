@@ -36,7 +36,6 @@ class CaseTenPage:
 
     # -------------------- Store finder --------------------
     def click_on_store_finder_in_footer(self):
-        # self.scroll_footer()
         self.helper.click(CaseTenLocators.STORE_FINDER)
         self.logger.info("click on the store finder in footer")
 
@@ -52,7 +51,6 @@ class CaseTenPage:
 
     # -------------------- WEEE Regulations (new tab) --------------------
     def click_on_link_footer(self):
-        # self.scroll_footer()
         self.helper.click(CaseTenLocators.WEEE_REGULATIONS)
         self.logger.info("click on the wee regulations in footer")
         sleep(1)
@@ -75,7 +73,6 @@ class CaseTenPage:
 
     # -------------------- Press --------------------
     def click_on_press_link(self):
-        # self.scroll_footer()
         self.helper.click(CaseTenLocators.PRESS)
         self.logger.info("click on the press in footer")
 
@@ -91,7 +88,6 @@ class CaseTenPage:
 
     # -------------------- Affiliates --------------------
     def click_on_affiliates_link(self):
-        # self.scroll_footer()
         self.helper.click(CaseTenLocators.AFFILIATES)
         self.logger.info("click on the affiliates in footer")
 
@@ -107,7 +103,6 @@ class CaseTenPage:
 
     # -------------------- Careers (new tab) --------------------
     def click_on_careers_link(self):
-        # self.scroll_footer()
         self.helper.click(CaseTenLocators.CAREERS)
         self.logger.info("click on the careers in footer")
 
@@ -129,33 +124,27 @@ class CaseTenPage:
 
     # -------------------- Gift cards --------------------
     def click_on_gift_cards_link(self):
-        # self.scroll_footer()
         sleep(2)
         self.helper.click(CaseTenLocators.GIFT_CARDS)
         self.logger.info("click on the gift cards in footer")
 
     def verify_gift_cards_link(self):
         # Title may differ based on product page; checking keyword is safer
-        sleep(2)
         self.helper.verify_title("The Entertainer & Early Learning Centre Gift Card £10 | Early Learning Centre")
         self.logger.info("title verified")
 
         # Your expected URL is very long. Using contains match in helper.
         self.helper.verify_url("https://www.elc.co.uk/gift-cards/")
         self.logger.info("url verified")
-        sleep(2)
         self.driver.back()
         self.logger.info("navigate back to home page done from gift cards")
 
     # -------------------- Klarna --------------------
     def click_on_klarna_link(self):
-        # self.scroll_footer()
-        sleep(2)
         self.helper.click(CaseTenLocators.KLARNA)
         self.logger.info("click on the klarna in footer")
 
     def verify_klarna_link(self):
-        sleep(2)
         self.helper.verify_title("Buy Now ")
         self.logger.info("title verified")
 
@@ -167,7 +156,6 @@ class CaseTenPage:
 
     # -------------------- Step 19: Useful links --------------------
     def verify_useful_link(self):
-        # self.scroll_footer()
         # Verifies keyword and record logs
         sleep(2)
         self.helper.verify_text(CaseTenLocators.USEFUL_LINKS_TEXT, "Useful links")

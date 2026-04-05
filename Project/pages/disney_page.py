@@ -76,7 +76,6 @@ class DisneyPage:
             None
         """
         try:
-            sleep(2)
             self.verify_disney_page()
             self.click_first_product()
         except Exception as e:
