@@ -6,4 +6,5 @@ allure-report/
 logs/
 screenshots/
 .env
-config.init
+config.ini
+testdata/
