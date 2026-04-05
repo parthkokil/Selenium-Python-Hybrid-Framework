@@ -2,13 +2,13 @@ import pytest
 from base import BaseTest
 
 from pages.bikes_page import BikesPage
-# from pages.brands_page import BrandsPage
+from pages.brands_page import BrandsPage
 from pages.car_page import CarPage
 from pages.cart_page import CartPage
 from pages.creativity_filter_page import CreativityFilterPage
 from pages.creativity_page import CreativityPage
 from pages.disney_page import DisneyPage
-# from pages.explore_page import ExplorePage
+from pages.explore_page import ExplorePage
 from Project.base import BaseTest
 from pages.footer_links_page import CaseTenPage
 from pages.home_page import HomePage
@@ -135,6 +135,44 @@ class TestCaseTenFooterLinks(BaseTest):
                  "Creativity product cart flow failed: %s", exc
              )
              raise
+
+    # 5th TestCase
+    @pytest.mark.smoke
+    def test_paw_patrol_add_to_basket(self):
+        """
+        Test Name: test_paw_patrol_add_to_basket
+        Author: Gitika
+        Description:
+            Verifies Paw Patrol product add-to-basket flow.
+        Return Type: None
+        Parameters: None
+        """
+        try:
+            tc5 = BrandsPage(self.driver, self.logger)
+            tc5.run_test_case_5_flow()
+            self.logger.info("Paw Patrol add-to-basket test executed successfully")
+        except Exception as exc:
+            self.logger.error(f"test_paw_patrol_add_to_basket failed: {exc}")
+            raise
+
+    # 6th TestCase
+    @pytest.mark.smoke
+    def test_dolls_checkout(self):
+        """
+        Test Name: test_dolls_checkout
+        Author: Gitika
+        Description:
+            Verifies Dolls category checkout flow.
+        Return Type: None
+        Parameters: None
+        """
+        try:
+            tc6 = ExplorePage(self.driver, self.logger)
+            tc6.run_test_case_6_flow()
+            self.logger.info("Dolls checkout test executed successfully")
+        except Exception as exc:
+            self.logger.error(f"test_dolls_checkout failed: {exc}")
+            raise
 
     # 7th Test Case
     @pytest.mark.smoke
