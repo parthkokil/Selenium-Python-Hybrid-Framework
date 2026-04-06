@@ -272,22 +272,27 @@ class TestCaseTenFooterLinks(BaseTest):
     #         )
     #         raise
 
-    # # 10th TestCase
-    # @pytest.mark.smoke
-    # def test_case_ten_footer_links_navigation(self):
-    #     """
-    #     Author: Parth
-    #     Description: Validates footer useful links navigation.
-    #     """
-    #     try:
-    #         footer_links_page = CaseTenPage(self.driver, self.logger)
-    #         footer_links_page.run_case_ten()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_case_ten_footer_links_navigation_failure"
-    #         )
-    #         self.logger.error(
-    #             "Footer links navigation failed: %s", exc
-    #         )
-    #         raise
+    # 10th TestCase
+    @pytest.mark.smoke
+    def test_case_ten_footer_links_navigation(self):
+        """
+        Author: Parth
+        Description: Validates footer useful links navigation.
+        """
+        try:
+            footer_links_page = CaseTenPage(self.driver, self.logger)
+            footer_links_page.run_case_ten()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_case_ten_footer_links_navigation_failure"
+            )
+            self.logger.error(
+                "Footer links navigation failed: %s", exc
+            )
+            raise
+
+
+
+
+        
     
