@@ -77,42 +77,42 @@ class TestCaseTenFooterLinks(BaseTest):
             ) from exc
 
     # 1st testCase
-    # @pytest.mark.smoke
-    # def test_newborn_gifts_navigation(self):
-    #     """
-    #     Author: Karuna
-    #     Description: Validates newborn gifts navigation.
-    #     """
-    #     try:
-    #         newborn_gifts_page = NewbornGiftsPage(self.driver, self.logger)
-    #         newborn_gifts_page.clutter()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_newborn_gifts_navigation_failure"
-    #         )
-    #         self.logger.error(
-    #             "Newborn gifts navigation failed: %s", exc
-    #         )
-    #         raisegit
+    @pytest.mark.smoke
+    def test_newborn_gifts_navigation(self):
+        """
+        Author: Karuna
+        Description: Validates newborn gifts navigation.
+        """
+        try:
+            newborn_gifts_page = NewbornGiftsPage(self.driver, self.logger)
+            newborn_gifts_page.clutter()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_newborn_gifts_navigation_failure"
+            )
+            self.logger.error(
+                "Newborn gifts navigation failed: %s", exc
+            )
+            raise
 
-    # # 2nd testCase
-    # @pytest.mark.smoke
-    # def test_soft_toys_navigation(self):
-    #     """
-    #     Author: Karuna
-    #     Description: Validates soft toys navigation.
-    #     """
-    #     try:
-    #         soft_toys_page = SoftToysPage(self.driver, self.logger)
-    #         soft_toys_page.clutter2()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_soft_toys_navigation_failure"
-    #         )
-    #         self.logger.error(
-    #             "Soft toys navigation failed: %s", exc
-    #         )
-    #         raise
+    # 2nd testCase
+    @pytest.mark.smoke
+    def test_soft_toys_navigation(self):
+        """
+        Author: Karuna
+        Description: Validates soft toys navigation.
+        """
+        try:
+            soft_toys_page = SoftToysPage(self.driver, self.logger)
+            soft_toys_page.clutter2()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_soft_toys_navigation_failure"
+            )
+            self.logger.error(
+                "Soft toys navigation failed: %s", exc
+            )
+            raise
  
 
     # 3rd TestCase
@@ -146,148 +146,153 @@ class TestCaseTenFooterLinks(BaseTest):
             raise
     
     # 4th TestCase
-    # @pytest.mark.smoke
-    # def test_creativity_product_cart_flow(self):
-    #     """
-    #     Author: Saptarshi
-    #     Description:
-    #         Home → Creativity → Filter → Product → Cart flow.
-    #     """
-    #     try:
-    #          home_page = HomePage(self.driver, self.logger)
-    #          creativity_page = CreativityPage(self.driver, self.logger)
-    #          creativity_filter_page = CreativityFilterPage(self.driver, self.logger)
-    #          product_page = ProductPage(self.driver, self.logger)
-    #          cart_page = CartPage(self.driver, self.logger)
+    @pytest.mark.smoke
+    def test_creativity_product_cart_flow(self):
+        """
+        Author: Saptarshi
+        Description:
+            Home → Creativity → Filter → Product → Cart flow.
+        """
+        try:
+             home_page = HomePage(self.driver, self.logger)
+             creativity_page = CreativityPage(self.driver, self.logger)
+             creativity_filter_page = CreativityFilterPage(self.driver, self.logger)
+             product_page = ProductPage(self.driver, self.logger)
+             cart_page = CartPage(self.driver, self.logger)
 
-    #          home_page.home_page_clutter2()
-    #          creativity_page.creativity_page_clutter()
-    #          creativity_filter_page.creativity_filter_page_clutter()
-    #          product_page.product_page_clutter2()
-    #          cart_page.cart_page_clutter()
+             home_page.home_page_clutter2()
+             creativity_page.creativity_page_clutter()
+             creativity_filter_page.creativity_filter_page_clutter()
+             product_page.product_page_clutter2()
+             cart_page.cart_page_clutter()
 
-    #     except Exception as exc:
-    #          Screenshot.capture_screenshot(
-    #              self.driver, "test_creativity_product_cart_flow_failure"
-    #          )
-    #          self.logger.error(
-    #              "Creativity product cart flow failed: %s", exc
-    #          )
-    #          raise
+        except Exception as exc:
+             Screenshot.capture_screenshot(
+                 self.driver, "test_creativity_product_cart_flow_failure"
+             )
+             self.logger.error(
+                 "Creativity product cart flow failed: %s", exc
+             )
+             raise
 
-    # # 5th TestCase
-    # @pytest.mark.smoke
-    # def test_paw_patrol_add_to_basket(self):
-    #     """
-    #     Test Name: test_paw_patrol_add_to_basket
-    #     Author: Gitika
-    #     Description:
-    #         Verifies Paw Patrol product add-to-basket flow.
-    #     Return Type: None
-    #     Parameters: None
-    #     """
-    #     try:
-    #         tc5 = BrandsPage(self.driver, self.logger)
-    #         tc5.run_test_case_5_flow()
-    #         self.logger.info("Paw Patrol add-to-basket test executed successfully")
-    #     except Exception as exc:
-    #         self.logger.error(f"test_paw_patrol_add_to_basket failed: {exc}")
-    #         raise
+    # 5th TestCase
+    @pytest.mark.smoke
+    def test_paw_patrol_add_to_basket(self):
+        """
+        Test Name: test_paw_patrol_add_to_basket
+        Author: Gitika
+        Description:
+            Verifies Paw Patrol product add-to-basket flow.
+        Return Type: None
+        Parameters: None
+        """
+        try:
+            tc5 = BrandsPage(self.driver, self.logger)
+            tc5.run_test_case_5_flow()
+            self.logger.info("Paw Patrol add-to-basket test executed successfully")
+        except Exception as exc:
+            self.logger.error(f"test_paw_patrol_add_to_basket failed: {exc}")
+            raise
 
-    # # 6th TestCase
-    # @pytest.mark.smoke
-    # def test_dolls_checkout(self):
-    #     """
-    #     Test Name: test_dolls_checkout
-    #     Author: Gitika
-    #     Description:
-    #         Verifies Dolls category checkout flow.
-    #     Return Type: None
-    #     Parameters: None
-    #     """
-    #     try:
-    #         tc6 = ExplorePage(self.driver, self.logger)
-    #         tc6.run_test_case_6_flow()
-    #         self.logger.info("Dolls checkout test executed successfully")
-    #     except Exception as exc:
-    #         self.logger.error(f"test_dolls_checkout failed: {exc}")
-    #         raise
+    # 6th TestCase
+    @pytest.mark.smoke
+    def test_dolls_checkout(self):
+        """
+        Test Name: test_dolls_checkout
+        Author: Gitika
+        Description:
+            Verifies Dolls category checkout flow.
+        Return Type: None
+        Parameters: None
+        """
+        try:
+            tc6 = ExplorePage(self.driver, self.logger)
+            tc6.run_test_case_6_flow()
+            self.logger.info("Dolls checkout test executed successfully")
+        except Exception as exc:
+            self.logger.error(f"test_dolls_checkout failed: {exc}")
+            raise
 
-    # # 7th Test Case
-    # @pytest.mark.smoke
-    # def test_search_functionality_flow(self):
-    #     """
-    #     Author: Ashutosh
-    #     Description: Validates search workflow.
-    #     """
-    #     try:
-    #         search_page = SearchPage(self.driver, self.logger)
-    #         search_page.work_flow()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_search_functionality_flow_failure"
-    #         )
-    #         self.logger.error(
-    #             "Search functionality flow failed: %s", exc
-    #         )
-    #         raise
-
-
-    # # 8th Test Case
-    # @pytest.mark.smoke
-    # def test_car_category_navigation(self):
-    #     """
-    #     Author: Ashutosh
-    #     Description: Validates car category navigation.
-    #     """
-    #     try:
-    #         car_page = CarPage(self.driver, self.logger)
-    #         car_page.work_flow()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_car_category_navigation_failure"
-    #         )
-    #         self.logger.error(
-    #             "Car category navigation failed: %s", exc
-    #         )
-    #         raise
+    # 7th Test Case
+    @pytest.mark.smoke
+    def test_search_functionality_flow(self):
+        """
+        Author: Ashutosh
+        Description: Validates search workflow.
+        """
+        try:
+            search_page = SearchPage(self.driver, self.logger)
+            search_page.work_flow()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_search_functionality_flow_failure"
+            )
+            self.logger.error(
+                "Search functionality flow failed: %s", exc
+            )
+            raise
 
 
-    # # 9th Test Case
-    # @pytest.mark.smoke
-    # def test_elc_support_footer_flow(self):
-    #     """
-    #     Author: Sasikumar
-    #     Description: Executes Test Case 9 flow.
-    #     """
-    #     try:
-    #         test_case_nine_page = ElcFooterSupportPage(self.driver, self.logger)
-    #         test_case_nine_page.elc_footer_pages_flow()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_case_nine_flow_failure"
-    #         )
-    #         self.logger.error(
-    #             "Test Case 9 flow failed: %s", exc
-    #         )
-    #         raise
+    # 8th Test Case
+    @pytest.mark.smoke
+    def test_car_category_navigation(self):
+        """
+        Author: Ashutosh
+        Description: Validates car category navigation.
+        """
+        try:
+            car_page = CarPage(self.driver, self.logger)
+            car_page.work_flow()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_car_category_navigation_failure"
+            )
+            self.logger.error(
+                "Car category navigation failed: %s", exc
+            )
+            raise
 
-    # # 10th TestCase
-    # @pytest.mark.smoke
-    # def test_case_ten_footer_links_navigation(self):
-    #     """
-    #     Author: Parth
-    #     Description: Validates footer useful links navigation.
-    #     """
-    #     try:
-    #         footer_links_page = CaseTenPage(self.driver, self.logger)
-    #         footer_links_page.run_case_ten()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_case_ten_footer_links_navigation_failure"
-    #         )
-    #         self.logger.error(
-    #             "Footer links navigation failed: %s", exc
-    #         )
-    #         raise
+
+    # 9th Test Case
+    @pytest.mark.smoke
+    def test_elc_support_footer_flow(self):
+        """
+        Author: Sasikumar
+        Description: Executes Test Case 9 flow.
+        """
+        try:
+            test_case_nine_page = ElcFooterSupportPage(self.driver, self.logger)
+            test_case_nine_page.elc_footer_pages_flow()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_case_nine_flow_failure"
+            )
+            self.logger.error(
+                "Test Case 9 flow failed: %s", exc
+            )
+            raise
+
+    # 10th TestCase
+    @pytest.mark.smoke
+    def test_case_ten_footer_links_navigation(self):
+        """
+        Author: Parth
+        Description: Validates footer useful links navigation.
+        """
+        try:
+            footer_links_page = CaseTenPage(self.driver, self.logger)
+            footer_links_page.run_case_ten()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_case_ten_footer_links_navigation_failure"
+            )
+            self.logger.error(
+                "Footer links navigation failed: %s", exc
+            )
+            raise
+
+
+
+
+        
     
