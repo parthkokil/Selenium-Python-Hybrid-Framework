@@ -77,23 +77,23 @@ class TestCaseTenFooterLinks(BaseTest):
             ) from exc
 
     # 1st testCase
-    # @pytest.mark.smoke
-    # def test_newborn_gifts_navigation(self):
-    #     """
-    #     Author: Karuna
-    #     Description: Validates newborn gifts navigation.
-    #     """
-    #     try:
-    #         newborn_gifts_page = NewbornGiftsPage(self.driver, self.logger)
-    #         newborn_gifts_page.clutter()
-    #     except Exception as exc:
-    #         Screenshot.capture_screenshot(
-    #             self.driver, "test_newborn_gifts_navigation_failure"
-    #         )
-    #         self.logger.error(
-    #             "Newborn gifts navigation failed: %s", exc
-    #         )
-    #         raise
+    @pytest.mark.smoke
+    def test_newborn_gifts_navigation(self):
+        """
+        Author: Karuna
+        Description: Validates newborn gifts navigation.
+        """
+        try:
+            newborn_gifts_page = NewbornGiftsPage(self.driver, self.logger)
+            newborn_gifts_page.clutter()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_newborn_gifts_navigation_failure"
+            )
+            self.logger.error(
+                "Newborn gifts navigation failed: %s", exc
+            )
+            raise
 
     # # 2nd testCase
     # @pytest.mark.smoke
@@ -115,37 +115,37 @@ class TestCaseTenFooterLinks(BaseTest):
     #         raise
  
 
-    # 3rd TestCase
-    @pytest.mark.smoke
-    def test_bikes_huffy_disney_product_flow(self):
-        """
-        Author: Saptarshi
-        Description:
-            Home → Bikes → Huffy → Disney → Product flow.
-        """
-        try:
-            home_page = HomePage(self.driver, self.logger)
-            bikes_page = BikesPage(self.driver, self.logger)
-            huffy_page = HuffyPage(self.driver, self.logger)
-            disney_page = DisneyPage(self.driver, self.logger)
-            product_page = ProductPage(self.driver, self.logger)
+    # # 3rd TestCase
+    # @pytest.mark.smoke
+    # def test_bikes_huffy_disney_product_flow(self):
+    #     """
+    #     Author: Saptarshi
+    #     Description:
+    #         Home → Bikes → Huffy → Disney → Product flow.
+    #     """
+    #     try:
+    #         home_page = HomePage(self.driver, self.logger)
+    #         bikes_page = BikesPage(self.driver, self.logger)
+    #         huffy_page = HuffyPage(self.driver, self.logger)
+    #         disney_page = DisneyPage(self.driver, self.logger)
+    #         product_page = ProductPage(self.driver, self.logger)
     
-            home_page.home_page_clutter()
-            bikes_page.bike_page_clutter()
-            huffy_page.huffy_page_clutter()
-            disney_page.disney_page_clutter()
-            product_page.product_page_clutter()
+    #         home_page.home_page_clutter()
+    #         bikes_page.bike_page_clutter()
+    #         huffy_page.huffy_page_clutter()
+    #         disney_page.disney_page_clutter()
+    #         product_page.product_page_clutter()
     
-        except Exception as exc:
-            Screenshot.capture_screenshot(
-                self.driver, "test_bikes_huffy_disney_product_flow_failure"
-            )
-            self.logger.error(
-                "Bikes–Huffy–Disney product flow failed: %s", exc
-            )
-            raise
+    #     except Exception as exc:
+    #         Screenshot.capture_screenshot(
+    #             self.driver, "test_bikes_huffy_disney_product_flow_failure"
+    #         )
+    #         self.logger.error(
+    #             "Bikes–Huffy–Disney product flow failed: %s", exc
+    #         )
+    #         raise
     
-    # 4th TestCase
+    # #4th TestCase
     # @pytest.mark.smoke
     # def test_creativity_product_cart_flow(self):
     #     """

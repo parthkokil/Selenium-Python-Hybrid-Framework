@@ -1,7 +1,6 @@
 from utilities.webDriverHelper import WebDriverHelper
 from uistore.creativity_filter_page_locator import CreativityFilterPageLocator
 from utilities.screenshot import Screenshot
-from time import sleep
 
 
 class CreativityFilterPage:
@@ -38,7 +37,7 @@ class CreativityFilterPage:
             None
         """
         try:
-            self.helper.verify_url("Creativity")
+            self.helper.verify_url("creativity")
             self.logger.info("Verified url of creativity filter page contains Creativity")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "verify_creativity_filter_page_failure")
@@ -57,7 +56,8 @@ class CreativityFilterPage:
             None
         """
         try:
-            self.helper.js_click(CreativityFilterPageLocator.first_product)
+            self.helper.js_scroll(CreativityFilterPageLocator.first_product)
+            self.helper.click(CreativityFilterPageLocator.first_product)
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_first_product_failure")
             self.logger.error(f"Failed to click first product: {e}")

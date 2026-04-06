@@ -3,7 +3,6 @@ from uistore.huffy_page_locator import HuffyPageLocator
 from utilities.screenshot import Screenshot
 from time import sleep
 
-
 class HuffyPage:
     def __init__(self, driver, logger):
         """
@@ -37,6 +36,7 @@ class HuffyPage:
             None
         """
         try:
+            sleep(2)
             self.helper.js_scroll(HuffyPageLocator.toddler_bikes)
             self.helper.click(HuffyPageLocator.toddler_bikes)
             self.logger.info(f"Toddler bikes clicked")

@@ -57,7 +57,7 @@ class CartPage:
             None
         """
         try:
-            self.helper.js_click(CartPageLocator.pop_up)
+            self.helper.click(CartPageLocator.pop_up)
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "close_the_pop_up_failure")
             self.logger.error(f"Failed to close the pop-up: {e}")
