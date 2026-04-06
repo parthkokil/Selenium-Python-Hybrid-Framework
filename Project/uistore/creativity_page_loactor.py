@@ -7,6 +7,6 @@ class CreativityPageLocator:
     Author: Saptarshi
     """
 
-    arts_and_craft = (By.XPATH, "//span[text()='Arts &amp; Crafts']")
+    arts_and_craft = (By.XPATH, "//span[text()='Arts & Crafts']")
     Creativity = (By.XPATH, "//span[text()='Creativity']")
  

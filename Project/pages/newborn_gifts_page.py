@@ -69,7 +69,6 @@ class NewbornGiftsPage:
         Return Type: None
         """
         try:
-            sleep(3)
             self.helper.click(NewbornGiftsLocators.ACCEPT_COOKIES_BUTTON)
             self.logger.info("Popup closed successfully")
         except Exception as e:
@@ -99,7 +98,6 @@ class NewbornGiftsPage:
         Return Type: None
         """
         try:
-            sleep(3)
             self.helper.click(NewbornGiftsLocators.NEWBORN_GIFTS_LINK)
             self.logger.info("Clicked on 'Newborn Gifts' successfully")
         except Exception as e:
@@ -166,16 +164,13 @@ class NewbornGiftsPage:
         Return Type: None
         """
         try:
-            sleep(3)
+            sleep(2)
             self.helper.click(NewbornGiftsLocators.FIRST_PRODUCT_CARD)
             self.logger.info("Clicked on first product")
-            sleep(3)
-            # self.helper.click(NewbornGiftsLocators.ADD_TO_BASKET_BUTTON)
-            # self.logger.info("Clicked on 'Add to Basket'")
-            sleep(2)
+            self.helper.click(NewbornGiftsLocators.ADD_TO_BASKET_BUTTON)
+            self.logger.info("Clicked on 'Add to Basket'")
             self.helper.click(NewbornGiftsLocators.CONTINUE_SHOPPING_LINK)
             self.logger.info("Clicked on 'Continue Shopping'")
-            sleep(2)
             self.helper.verify_text(NewbornGiftsLocators.HOME_DELIVERY_RADIO, "Home")
             self.logger.info("Verified 'Home' keyword successfully")
             Screenshot.capture_screenshot(self.driver, "gift_added_to_cart")

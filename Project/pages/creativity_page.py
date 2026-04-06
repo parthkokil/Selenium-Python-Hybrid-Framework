@@ -58,7 +58,7 @@ class CreativityPage:
         """
         try:
             self.helper.js_scroll(CreativityPageLocator.arts_and_craft)
-            self.helper.js_click(CreativityPageLocator.arts_and_craft)
+            self.helper.click(CreativityPageLocator.arts_and_craft)
             self.logger.info("Scroll down and clicked art and crafts")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "scroll_down_and_click_art_and_crafts_failure")

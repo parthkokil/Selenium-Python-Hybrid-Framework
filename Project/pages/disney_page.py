@@ -3,7 +3,6 @@ from uistore.disney_page_locator import DisneyPageLocator
 from utilities.screenshot import Screenshot
 from time import sleep
 
-
 class DisneyPage:
     def __init__(self, driver, logger):
         """
@@ -38,6 +37,7 @@ class DisneyPage:
             None
         """
         try:
+            sleep(2)
             self.helper.verify_url("Disney")
             self.logger.info("Verified Disney")
         except Exception as e:

@@ -37,8 +37,6 @@ class HomePage:
             None
         """
         try:
-            # value = self.driver.find_element(*HomePageLocator.ELC_logo).get_attribute("title")
-            # self.helper.verify_text("Early Learning Centre", str(value))
             self.helper.is_element_visible(HomePageLocator.ELC_logo)
             self.logger.info("Verified logo")
         except Exception as e:
@@ -77,6 +75,7 @@ class HomePage:
             None
         """
         try:
+            sleep(2)
             self.helper.hover(HomePageLocator.outdoor_toys)
             self.logger.info(f"Outdoor toys hovered")
         except Exception as e:
@@ -96,8 +95,6 @@ class HomePage:
             None
         """
         try:
-            sleep(2)
-            self.helper.js_scroll(HomePageLocator.bikes)
             self.helper.click(HomePageLocator.bikes)
             self.logger.info(f"Bikes clicked")
         except Exception as e:
@@ -138,7 +135,8 @@ class HomePage:
             None
         """
         try:
-            self.helper.js_click(HomePageLocator.creativity)
+            self.helper.js_scroll(HomePageLocator.creativity)
+            self.helper.click(HomePageLocator.creativity)
             self.logger.info(f"creativity clicked")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_on_creativity_failure")

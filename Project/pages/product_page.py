@@ -1,7 +1,6 @@
 from utilities.webDriverHelper import WebDriverHelper
 from uistore.product_page_locator import ProductPageLocator
 from utilities.screenshot import Screenshot
-from time import sleep
 
 
 class ProductPage:
@@ -38,7 +37,7 @@ class ProductPage:
             None
         """
         try:
-            self.helper.verify_text(ProductPageLocator.add_to_basket,"Add to Basket")
+            self.helper.verify_text(ProductPageLocator.add_to_basket,"Add")
             self.logger.info("Add To Basket exist means it is in product page")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "verify_the_add_basket_button_failure")
@@ -77,7 +76,8 @@ class ProductPage:
             None
         """
         try:
-            self.helper.js_click(ProductPageLocator.add_to_basket)
+            self.helper.js_scroll(ProductPageLocator.add_to_basket)
+            self.helper.click(ProductPageLocator.add_to_basket)
             self.logger.info("Add To Basket")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_add_to_basket_failure")
@@ -116,7 +116,8 @@ class ProductPage:
             None
         """
         try:
-            self.helper.js_click(ProductPageLocator.check_out)
+            self.helper.js_scroll(ProductPageLocator.check_out)
+            self.helper.click(ProductPageLocator.check_out)
             self.logger.info("Check Out clicked")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "click_check_out_failure")
@@ -136,7 +137,8 @@ class ProductPage:
             None
         """
         try:
-            self.helper.js_click(ProductPageLocator.minutes)
+            self.helper.js_scroll(ProductPageLocator.minutes)
+            self.helper.click(ProductPageLocator.minutes)
             self.logger.info("Keyword minutes checked")
         except Exception as e:
             Screenshot.capture_screenshot(self.driver, "verify_the_keyword_minutes_failure")

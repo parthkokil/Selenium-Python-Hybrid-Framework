@@ -22,9 +22,9 @@ class NewbornGiftsLocators:
     EARLY_LEARNING_CENTRE_FILTER = (By.CLASS_NAME, "facet__list__text")
     HAND_EYE_COORDINATION_FILTER = (By.XPATH, "//span[text()='Hand eye coordination']")
 
-    FIRST_PRODUCT_CARD = (By.XPATH, "//div[contains(@class,'product-item-inner')]")
+    FIRST_PRODUCT_CARD = (By.XPATH,"//a[@class='thumb clickedObjectIDsAfterSearch']")
 
-    ADD_TO_BASKET_BUTTON = (By.XPATH, "//span[text()='Add to Basket']")
+    ADD_TO_BASKET_BUTTON = (By.ID, "addToCartButton")
     CONTINUE_SHOPPING_LINK = (By.XPATH, "//a[contains(@class,'ef')]")
 
     HOME_DELIVERY_RADIO = (By.ID, "labelHomeDeliverySelected")
