@@ -8,97 +8,80 @@ class AllureReporter:
     """
     Class Name    : AllureReporter
     Author        : Karuna
-    Description   : Utility class responsible for generating Allure HTML reports using the locally available Allure CLI
-    Return Type   : Object
+    Description   : Generates Allure HTML reports using Allure CLI
+    Return Type   : None
     Parameters    : None
     """
 
     def __init__(self):
-        # Pause execution briefly to ensure all test results are written
+        # Small wait to ensure all result files are flushed
         sleep(2)
 
-        # Resolve the project root directory dynamically
-        project_root_directory = os.path.abspath(
+        # Resolve project root directory
+        self.project_root = os.path.abspath(
             os.path.join(os.path.dirname(__file__), "..")
         )
 
-        # Initialize ConfigParser to read config.properties
-        config_parser = ConfigParser()
-
-        # Construct absolute path of config.properties file
-        config_file_path = os.path.join(
-            project_root_directory,
+        # Load config.properties
+        config = ConfigParser()
+        config_path = os.path.join(
+            self.project_root,
             "config",
             "config.properties"
         )
 
-        # Read configuration values from config.properties
-        config_parser.read(config_file_path)
+        if not os.path.exists(config_path):
+            raise FileNotFoundError(
+                f"config.properties not found at: {config_path}"
+            )
 
-        # Read relative directory paths from PATH section
-        base_directory_relative = config_parser.get("PATH", "base_dir")
-        result_directory_relative = config_parser.get("PATH", "result_directory")
-        report_directory_relative = config_parser.get("PATH", "report_directory")
+        config.read(config_path)
 
-        # Construct absolute paths using project root
-        self.base_directory_path = os.path.join(
-            project_root_directory,
-            base_directory_relative
-        )
-        self.result_directory_path = os.path.join(
-            project_root_directory,
-            result_directory_relative
-        )
-        self.report_directory_path = os.path.join(
-            project_root_directory,
-            report_directory_relative
-        )
+        # Read paths from config
+        self.base_dir = config.get("PATH", "base_dir")
+        self.allure_results_dir = config.get("PATH", "allure_results")
+        self.allure_report_dir = config.get("PATH", "allure_report")
 
-        # Create required directories if they do not already exist
-        os.makedirs(self.base_directory_path, exist_ok=True)
-        os.makedirs(self.result_directory_path, exist_ok=True)
-        os.makedirs(self.report_directory_path, exist_ok=True)
+        # Convert to absolute paths
+        self.base_dir_path = os.path.join(self.project_root, self.base_dir)
+        self.results_dir_path = os.path.join(self.project_root, self.allure_results_dir)
+        self.report_dir_path = os.path.join(self.project_root, self.allure_report_dir)
 
-        # Define the absolute path of allure.bat executable
-        self.allure_batch_file_path = os.path.join(
-            project_root_directory,
-            "allure-2.38.1",
-            "bin",
-            "allure.bat"
-        )
+        # Ensure required directories exist
+        os.makedirs(self.base_dir_path, exist_ok=True)
+        os.makedirs(self.results_dir_path, exist_ok=True)
+        os.makedirs(self.report_dir_path, exist_ok=True)
 
     """
     Method Name   : generate_allure_report
-    Author        : Karuna
-    Description   : Generates Allure HTML report from the result directory and stores it in a timestamped report folder
+    Author        : Parth
+    Description   : Generates timestamped Allure HTML report
     Return Type   : None
     Parameters    : None
     """
 
     def generate_allure_report(self):
-        # Pause execution to ensure result files are stable
         sleep(2)
 
-        # Generate timestamp for unique report folder naming
-        report_timestamp = datetime.now().strftime(
-            "%Y_%m_%d-%H_%M_%S"
+        # Timestamped report directory
+        timestamp = datetime.now().strftime("%Y_%m_%d-%H_%M_%S")
+        final_report_path = os.path.join(
+            self.report_dir_path,
+            f"AllureReport_{timestamp}"
         )
 
-        # Construct output directory path for Allure report
-        report_output_path = os.path.join(
-            self.report_directory_path,
-            f"AllureReports_{report_timestamp}"
-        )
-
-        # Build Windows-safe command to execute allure.bat
+        # Allure CLI command
         allure_command = (
-            f'cmd /c ""{self.allure_batch_file_path}" '
-            f'generate "{self.result_directory_path}" '
-            f'-o "{report_output_path}" --clean"'
+            f'allure generate "{self.results_dir_path}" '
+            f'-o "{final_report_path}" --clean'
         )
 
-        # Print command for debugging and traceability
-        print("Running Allure command:", allure_command)
+        print("\nGenerating Allure Report...")
+        print("Command:", allure_command)
 
-        # Execute the Allure report generation command
-        os.system(allure_command)
+        exit_code = os.system(allure_command)
+
+        if exit_code == 0:
+            print(f"\n Allure report generated successfully at:\n{final_report_path}")
+        else:
+            print("\n Failed to generate Allure report. Check Allure installation.")

@@ -8,9 +8,7 @@ from pages.footer_component import FooterComponentPage
 from utilities.logger import get_framework_logger
 from utilities.config_reader import ConfigReader
 
-
 class TestCaseClass(BaseTest):
-    # Initialize framework logger
     logger = get_framework_logger()
     """
     Method Name   : setup_method
@@ -19,37 +17,21 @@ class TestCaseClass(BaseTest):
     Return Type   : None
     Parameters    : None
     """
-    def setup_method(self):
+    def setUp(self):
         try:
-            # Initialize Chrome WebDriver
             self.web_driver = self.setUpDriver()
-
-            # Maximize browser window
             self.web_driver.maximize_window()
-
-            # Initialize configuration reader
             self.config_reader = ConfigReader()
-
-            # Fetch application URL from config file
             application_url = self.config_reader.get_config_value("ELC","url")
-
-            # Launch application
             self.web_driver.get(application_url)
-
-            # Fetch timeout value from config file
             timeout_seconds = int(self.config_reader.get_config_value("ELC","timeout"))
-
-            # Apply implicit wait
             self.web_driver.implicitly_wait(timeout_seconds)
-
-            # Log successful setup
             self.logger.info("Browser launched and application opened: %s",application_url)
-
-        except Exception:
-            # Log setup failure without stopping execution abruptly
+        except Exception as e:
             self.logger.exception("Test setup failed.")
+            pytest.fail(f"Setup failed: {e}")
 
-    def teardown_method(self):
+    def tearDown(self):
         """
         Method Name   : teardown_method
         Author        : Parth
@@ -58,18 +40,15 @@ class TestCaseClass(BaseTest):
         Parameters    : None
         """
         try:
-            # Close browser if driver exists
             if getattr(self, "web_driver", None):
                 self.web_driver.quit()
 
-            # Log successful teardown
             self.logger.info("Browser closed successfully.")
 
-        except Exception:
-            # Log teardown failure
+        except Exception as e:
             self.logger.exception("Test teardown failed.")
 
-    # TestCase 1
+
     @pytest.mark.smoke
     def test_newborn_gift_page(self):
         """
@@ -94,17 +73,18 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Error in test_newborn_gift_page: {e}")
+            pytest.fail(str(e))
 
 
     
     @pytest.mark.smoke
     def test_soft_toy_page(self):
         """
-         # Method Name   : test_soft_toy_page
-        # Author        : Karuna Narayankar
-        # Description   : Verifies soft toys category navigation and validates first soft toy product page.
-        # Return Type   : None
-        # Parameters    : None
+        Method Name   : test_soft_toy_page
+        Author        : Karuna Narayankar
+        Description   : Verifies soft toys category navigation and validates first soft toy product page.
+        Return Type   : None
+        Parameters    : None
         """
         try:
             home_page_obj = HomePage(self.web_driver, self.logger)
@@ -121,6 +101,7 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Error in test_soft_toy_page: {e}")
+            pytest.fail(str(e))
 
    
     @pytest.mark.smoke
@@ -147,6 +128,7 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Failed in test_of_third_test_case: {e}")
+            pytest.fail(str(e))
 
     
     
@@ -174,16 +156,17 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Failed in test_of_fourth_case: {e}")
+            pytest.fail(str(e))
 
     
     @pytest.mark.smoke
     def test_paw_patrol_product_add_to_basket_flow(self):
         """
-        # Method Name   : test_paw_patrol_product_add_to_basket_flow
-        # Author        : Gitika Thakur
-        # Description   : Verifies Paw Patrol product add-to-basket and basket verification flow.
-        # Return Type   : None
-        # Parameters    : None
+        Method Name   : test_paw_patrol_product_add_to_basket_flow
+        Author        : Gitika Thakur
+        Description   : Verifies Paw Patrol product add-to-basket and basket verification flow.
+        Return Type   : None
+        Parameters    : None
         """
         try:
             home_page_navigation_actions_obj = HomePage(self.web_driver, self.logger)
@@ -200,6 +183,7 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Error in test_paw_patrol_product_add_to_basket_flow: {e}")
+            pytest.fail(str(e))
 
     
     @pytest.mark.smoke
@@ -228,6 +212,7 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Error in test_dolls_product_checkout_flow: {e}")
+            pytest.fail(str(e))
 
 
     
@@ -256,6 +241,7 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Error in test_puzzles_search_functionality_flow: {e}")
+            pytest.fail(str(e))
 
    
     @pytest.mark.smoke
@@ -283,6 +269,7 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Error in test_cars_search_functionality_flow: {e}")
+            pytest.fail(str(e))
 
 
 
@@ -306,6 +293,7 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Test Case 9 failed due to error: {e}")
+            pytest.fail(str(e))
 
     @pytest.mark.smoke
     def test_footer_links_navigation(self):
@@ -327,3 +315,4 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Test Case 10 failed due to error: {e}")
+            pytest.fail(str(e))
