@@ -8,14 +8,10 @@ from pages.footer_component import FooterComponentPage
 from utilities.logger import get_framework_logger
 from utilities.config_reader import ConfigReader
 
-<<<<<<< HEAD
-class TestCaseTenFooterLinks(BaseTest):
-=======
 
 class TestCaseClass(BaseTest):
     # Initialize framework logger
     logger = get_framework_logger()
->>>>>>> 5b77642d98095ebf53877730ba3ec04849dd8117
     """
     Method Name   : setup_method
     Author        : Parth
@@ -100,8 +96,7 @@ class TestCaseClass(BaseTest):
             self.logger.error(f"Error in test_newborn_gift_page: {e}")
 
 
-    # Clicking on first product doesn't work
-    # TestCase 2
+    
     @pytest.mark.smoke
     def test_soft_toy_page(self):
         """
@@ -127,11 +122,11 @@ class TestCaseClass(BaseTest):
         except Exception as e:
             self.logger.error(f"Error in test_soft_toy_page: {e}")
 
-    # TestCase 3
+   
     @pytest.mark.smoke
-    def test_of_third_test_case(self):
+    def test_of_outdoor_toys(self):
         """
-        Method name: test_of_third_test_case
+        Method name: test_of_outdoor_toys
         Author name: Saptarshi
         Description : Executes the complete flow for third test case
         Return type: None
@@ -153,34 +148,12 @@ class TestCaseClass(BaseTest):
         except Exception as e:
             self.logger.error(f"Failed in test_of_third_test_case: {e}")
 
-
-    # TestCase 4
-            home_page = HomePage(self.driver, self.logger)
-            bikes_page = BikesPage(self.driver, self.logger)
-            huffy_page = HuffyPage(self.driver, self.logger)
-            disney_page = DisneyPage(self.driver, self.logger)
-            product_page = ProductPage(self.driver, self.logger)
     
-            home_page.home_page_clutter()
-            bikes_page.bike_page_clutter()
-            huffy_page.huffy_page_clutter()
-            disney_page.disney_page_clutter()
-            product_page.product_page_clutter()
     
-        except Exception as exc:
-            Screenshot.capture_screenshot(
-                self.driver, "test_bikes_huffy_disney_product_flow_failure"
-            )
-            self.logger.error(
-                "Bikes–Huffy–Disney product flow failed: %s", exc
-            )
-            raise
-    
-    #4th TestCase
     @pytest.mark.smoke
-    def test_of_fourth_case(self):
+    def test_of_creativity_products(self):
         """
-        Method name: test_of_fourth_case
+        Method name: test_of_creativity_products
         Author name: Saptarshi
         Description : Executes the complete flow for fourth test case.
         Return type: None
@@ -202,7 +175,7 @@ class TestCaseClass(BaseTest):
         except Exception as e:
             self.logger.error(f"Failed in test_of_fourth_case: {e}")
 
-    # TestCase 5
+    
     @pytest.mark.smoke
     def test_paw_patrol_product_add_to_basket_flow(self):
         """
@@ -228,7 +201,7 @@ class TestCaseClass(BaseTest):
         except Exception as e:
             self.logger.error(f"Error in test_paw_patrol_product_add_to_basket_flow: {e}")
 
-    # Test Case 6
+    
     @pytest.mark.smoke
     def test_dolls_product_checkout_flow(self):
         """
@@ -257,7 +230,7 @@ class TestCaseClass(BaseTest):
             self.logger.error(f"Error in test_dolls_product_checkout_flow: {e}")
 
 
-    # Test Case 7
+    
     @pytest.mark.smoke
     def test_puzzles_search_functionality_flow(self):
         """
@@ -284,7 +257,7 @@ class TestCaseClass(BaseTest):
         except Exception as e:
             self.logger.error(f"Error in test_puzzles_search_functionality_flow: {e}")
 
-    # TestCase 8
+   
     @pytest.mark.smoke
     def test_cars_search_functionality_flow(self):
         """
@@ -312,7 +285,7 @@ class TestCaseClass(BaseTest):
             self.logger.error(f"Error in test_cars_search_functionality_flow: {e}")
 
 
-    # TestCase 9
+
     @pytest.mark.smoke
     def test_elc_footer_help_link_navigation(self):
         """
@@ -334,12 +307,10 @@ class TestCaseClass(BaseTest):
         except Exception as e:
             self.logger.error(f"Test Case 9 failed due to error: {e}")
 
-
-    # TestCase 10
     @pytest.mark.smoke
-    def test_case_ten_footer_links_navigation(self):
+    def test_footer_links_navigation(self):
         """
-        Method Name   : test_case_ten_footer_links_navigation
+        Method Name   : test_footer_links_navigation
         Author        : Parth
         Description   : Verifies footer links navigation flow (About Us + footer links).
         Return Type   : None
@@ -356,17 +327,3 @@ class TestCaseClass(BaseTest):
 
         except Exception as e:
             self.logger.error(f"Test Case 10 failed due to error: {e}")
-
-
-
-            footer_links_page = CaseTenPage(self.driver, self.logger)
-            footer_links_page.run_case_ten()
-        except Exception as exc:
-            Screenshot.capture_screenshot(
-                self.driver, "test_case_ten_footer_links_navigation_failure"
-            )
-            self.logger.error(
-                "Footer links navigation failed: %s", exc
-            )
-            raise
-    
