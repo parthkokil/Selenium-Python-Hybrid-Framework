@@ -151,6 +151,28 @@ class TestCaseClass(BaseTest):
 
 
     # TestCase 4
+            home_page = HomePage(self.driver, self.logger)
+            bikes_page = BikesPage(self.driver, self.logger)
+            huffy_page = HuffyPage(self.driver, self.logger)
+            disney_page = DisneyPage(self.driver, self.logger)
+            product_page = ProductPage(self.driver, self.logger)
+    
+            home_page.home_page_clutter()
+            bikes_page.bike_page_clutter()
+            huffy_page.huffy_page_clutter()
+            disney_page.disney_page_clutter()
+            product_page.product_page_clutter()
+    
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_bikes_huffy_disney_product_flow_failure"
+            )
+            self.logger.error(
+                "Bikes–Huffy–Disney product flow failed: %s", exc
+            )
+            raise
+    
+    #4th TestCase
     @pytest.mark.smoke
     def test_of_fourth_case(self):
         """
@@ -332,3 +354,15 @@ class TestCaseClass(BaseTest):
             self.logger.error(f"Test Case 10 failed due to error: {e}")
 
 
+
+            footer_links_page = CaseTenPage(self.driver, self.logger)
+            footer_links_page.run_case_ten()
+        except Exception as exc:
+            Screenshot.capture_screenshot(
+                self.driver, "test_case_ten_footer_links_navigation_failure"
+            )
+            self.logger.error(
+                "Footer links navigation failed: %s", exc
+            )
+            raise
+    
