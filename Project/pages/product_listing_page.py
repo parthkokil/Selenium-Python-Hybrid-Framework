@@ -1,4 +1,4 @@
-​from utilities.web_driver_helper import WebDriverHelper
+from utilities.web_driver_helper import WebDriverHelper
 from utilities.screenshot import Screenshot
 from time import sleep
 from utilities.excel_reader import ExcelReader
