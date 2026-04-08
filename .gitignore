@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+venv/
+allure-results/
+allure-report/
+logs/
+screenshot/
+.env
+config.ini
+config/
+config/
+testdata/
+Report/
