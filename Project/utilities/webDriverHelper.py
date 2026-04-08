@@ -13,12 +13,12 @@ class WebDriverHelper:
         self.driver = driver
         self.wait = WebDriverWait(self.driver, timeout)
 
-    def open_page(self, url):
-        try:
-            self.driver.get(url)
-        except WebDriverException as e:
-            traceback.print_exc()
-            raise Exception("Error in open_page: " + str(e))
+    # def open_page(self, url):
+    #     try:
+    #         self.driver.get(url)
+    #     except WebDriverException as e:
+    #         traceback.print_exc()
+    #         raise Exception("Error in open_page: " + str(e))
 
     def click(self, locator):
         try:
@@ -44,14 +44,14 @@ class WebDriverHelper:
             traceback.print_exc()
             raise Exception("Error in hover: " + str(e))
 
-    def hover_two_elements(self, first_locator, second_locator):
-        try:
-            first = self.wait.until(EC.visibility_of_element_located(first_locator))
-            second = self.wait.until(EC.visibility_of_element_located(second_locator))
-            ActionChains(self.driver).move_to_element(first).move_to_element(second).perform()
-        except WebDriverException as e:
-            traceback.print_exc()
-            raise Exception("Error in hover_two_elements: " + str(e))
+    # def hover_two_elements(self, first_locator, second_locator):
+    #     try:
+    #         first = self.wait.until(EC.visibility_of_element_located(first_locator))
+    #         second = self.wait.until(EC.visibility_of_element_located(second_locator))
+    #         ActionChains(self.driver).move_to_element(first).move_to_element(second).perform()
+    #     except WebDriverException as e:
+    #         traceback.print_exc()
+    #         raise Exception("Error in hover_two_elements: " + str(e))
 
     def js_scroll(self, locator):
         try:
@@ -73,12 +73,12 @@ class WebDriverHelper:
         except Exception as e:
             print(f"An error occurred in switch_to_new_window: {e}")
 
-    def switch_to_frame(self, locator):
-        try:
-            element = self.wait.until(EC.visibility_of_element_located(locator))
-            self.driver.switch_to.frame(element)
-        except Exception as e:
-            print(f"An error occurred in switch_to_frame: {e}")
+    # def switch_to_frame(self, locator):
+    #     try:
+    #         element = self.wait.until(EC.visibility_of_element_located(locator))
+    #         self.driver.switch_to.frame(element)
+    #     except Exception as e:
+    #         print(f"An error occurred in switch_to_frame: {e}")
 
     def send_keys_enter(self, locator, text):
         try:
@@ -88,24 +88,24 @@ class WebDriverHelper:
         except Exception as e:
             print(f"An error occurred in send_keys_enter: {e}")
 
-    def hover_and_click(self, hover_locator, click_locator):
-        try:
-            hover_element = self.wait.until(EC.visibility_of_element_located(hover_locator))
-            ActionChains(self.driver).move_to_element(hover_element).perform()
-            click_element = self.wait.until(EC.element_to_be_clickable(click_locator))
-            click_element.click()
-        except Exception as e:
-            print(f"An error occurred in hover_and_click: {e}")
+    # def hover_and_click(self, hover_locator, click_locator):
+    #     try:
+    #         hover_element = self.wait.until(EC.visibility_of_element_located(hover_locator))
+    #         ActionChains(self.driver).move_to_element(hover_element).perform()
+    #         click_element = self.wait.until(EC.element_to_be_clickable(click_locator))
+    #         click_element.click()
+    #     except Exception as e:
+    #         print(f"An error occurred in hover_and_click: {e}")
 
-    def hover_two_and_click(self, first_locator, second_locator, click_locator):
-        try:
-            first = self.wait.until(EC.visibility_of_element_located(first_locator))
-            second = self.wait.until(EC.visibility_of_element_located(second_locator))
-            ActionChains(self.driver).move_to_element(first).move_to_element(second).perform()
-            third = self.wait.until(EC.element_to_be_clickable(click_locator))
-            third.click()
-        except Exception as e:
-            print(f"An error occurred in hover_two_and_click: {e}")
+    # def hover_two_and_click(self, first_locator, second_locator, click_locator):
+    #     try:
+    #         first = self.wait.until(EC.visibility_of_element_located(first_locator))
+    #         second = self.wait.until(EC.visibility_of_element_located(second_locator))
+    #         ActionChains(self.driver).move_to_element(first).move_to_element(second).perform()
+    #         third = self.wait.until(EC.element_to_be_clickable(click_locator))
+    #         third.click()
+    #     except Exception as e:
+    #         print(f"An error occurred in hover_two_and_click: {e}")
 
     # ---------- Utility / Verification Methods ----------
 

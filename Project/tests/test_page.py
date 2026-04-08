@@ -22,7 +22,6 @@ from utilities.logger import get_logger
 from utilities.config_reader import ConfigReader
 from utilities.screenshot import Screenshot
 
-
 class TestCaseTenFooterLinks(BaseTest):
     """
     Test Suite Name: TestCaseTenFooterLinks
