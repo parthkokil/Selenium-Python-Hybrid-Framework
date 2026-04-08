@@ -2,13 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class SearchBarLocators:
-    """
-    Locator Class Name: SearchBarLocators
-    Author: Ashutosh
-    Description:
-        Contains all locators related to the Search Bar workflow.
-    """
-
+    
     ACCEPT_COOKIES_BUTTON = (By.ID, "onetrust-accept-btn-handler")
     ELC_LOGO_IMAGE = (By.XPATH, "//img[@alt='Early Learning Centre']")
 
