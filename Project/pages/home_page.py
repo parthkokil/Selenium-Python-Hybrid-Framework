@@ -2,6 +2,7 @@ from utilities.web_driver_helper import WebDriverHelper
 from uistore.home_locators import HomeLocators
 from utilities.screenshot import Screenshot
 from utilities.excel_reader import ExcelReader
+from selenium.webdriver.support.ui import WebDriverWait
 from time import sleep
 
 class HomePage:
@@ -18,8 +19,6 @@ class HomePage:
         self.logger = logger
         self.web_driver_helper = WebDriverHelper(self.web_driver)
 
-    # -------------------- TestCase 10 (HomePage Operations) --------------------
-
     """
     # Method Name   : close_popup
     # Author        : Parth
@@ -29,16 +28,13 @@ class HomePage:
     """
     def close_popup(self):
         try:
-            self.web_driver_helper.click_element(
-                HomeLocators.pop_up
-            )
+            self.web_driver_wait = WebDriverWait(self.web_driver, 1)
+            self.web_driver_helper.click_element(HomeLocators.pop_up)
             self.logger.info("Clicked on the popup close button")
 
         except Exception as exception:
             self.logger.error("Error while closing popup on home page")
-            raise Exception(
-                f"close_popup failed: {exception}"
-            )
+            raise Exception(f"close_popup failed: {exception}")
 
     def verify_logo(self):
         """
