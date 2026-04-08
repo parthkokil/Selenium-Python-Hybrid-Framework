@@ -2,12 +2,13 @@ import configparser
 import os
 
 class ConfigReader:
-    # Class Name    : ConfigReader
-    # Author        : Sasi Kumar
-    # Description   : Utility class responsible for reading values from
-    #                 the config.properties file
-    # Return Type   : Object
-    # Parameters    : None
+    """
+    Class Name    : ConfigReader
+    Author        : Sasi Kumar
+    Description   : Utility class responsible for reading values from the config.properties file
+    Return Type   : Object
+    Parameters    : None
+    """
 
     def __init__(self):
         # Initialize ConfigParser object to read configuration files
@@ -44,12 +45,13 @@ class ConfigReader:
                 f"Failed to load config file: {exception}"
             )
 
-    # Method Name   : get_config_value
-    # Author        : Sasi Kumar
-    # Description   : Fetches a value from config.properties
-    #                 using section name and key
-    # Return Type   : str
-    # Parameters    : section_name(str), key_name(str)
+    """
+    Method Name   : get_config_value
+    Author        : Sasi Kumar
+    Description   : Fetches a value from config.properties using section name and key
+    Return Type   : str
+    Parameters    : section_name(str), key_name(str)
+    """
 
     def get_config_value(self, section_name, key_name):
         try:
