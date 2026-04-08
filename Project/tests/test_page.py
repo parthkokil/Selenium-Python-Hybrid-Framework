@@ -8,10 +8,14 @@ from pages.footer_component import FooterComponentPage
 from utilities.logger import get_framework_logger
 from utilities.config_reader import ConfigReader
 
+<<<<<<< HEAD
+class TestCaseTenFooterLinks(BaseTest):
+=======
 
 class TestCaseClass(BaseTest):
     # Initialize framework logger
     logger = get_framework_logger()
+>>>>>>> 5b77642d98095ebf53877730ba3ec04849dd8117
     """
     Method Name   : setup_method
     Author        : Parth
