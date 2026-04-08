@@ -1,0 +1,44 @@
+[32mINFO    [0m framework_logger:test_page.py:53 Browser launched and application opened: https://www.elc.co.uk/
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Accept All Cookies
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Contact Us #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Contact Us
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:18 Contact Us page opened
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:154 Contact_Us URL verified
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 Contact_Us title verified
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Delivery Options #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Delivery Options
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:33 Delivery Options page opened
+[31m[1mERROR   [0m framework_logger:elc_footer_support_page.py:158 Delivery_Options URL mismatch. Current URL: https://theentertainer.zendesk.com/hc/en-gb/articles/4409593606545-Delivery-options
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 Delivery_Options title verified
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Product Safety Notices #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Product Safety Notices
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:52 Product Safety page opened
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:154 Product_Safety URL verified
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 Product_Safety title verified
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Returns #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Returns
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:67 Returns page opened
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:154 Returns URL verified
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 Returns title verified
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Track your order #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Track your order
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:86 Track Your Order page opened
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:154 Track_Your_Order URL verified
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 Track_Your_Order title verified
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Help Centre #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Help Centre
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:101 Help Center page opened
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:154 Help_Center URL verified
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 Help_Center title verified
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Your Privacy #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked Your Privacy
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:120 Privacy Policy page opened
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:154 Your_Privacy URL verified
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 Your_Privacy title verified
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 How To Complain #absolute
+[32mINFO    [0m utilities.eventhandler:eventhandler.py:32 Clicked How To Complain
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:139 How To Complain page opened
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:154 How_To_Complain URL verified
+[32mINFO    [0m framework_logger:elc_footer_support_page.py:171 How_To_Complain title verified
+[32mINFO    [0m framework_logger:test_page.py:72 Browser closed successfully.
