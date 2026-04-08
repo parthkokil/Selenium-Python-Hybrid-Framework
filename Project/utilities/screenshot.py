@@ -5,31 +5,70 @@ from utilities.config_reader import ConfigReader
 
 class Screenshot:
     """
-    Screenshot utility to capture browser screenshots
-    Author Name : Ashutosh
+    Class Name    : Screenshot
+    Author        : Ashutosh
+    Description   : Utility class responsible for capturing browser screenshots and storing them in a configured screenshot directory
+    Return Type   : Object
+    Parameters    : None
     """
 
     @staticmethod
-    def capture_screenshot(driver, name):
+    def capture_browser_screenshot(web_driver, screenshot_name):
+        """
+            Method Name   : capture_browser_screenshot
+            Author        : Ashutosh
+            Description   : Captures a screenshot of the current browser state and saves it with a timestamped file name
+            Return Type   : str
+            Parameters    : web_driver(object), screenshot_name(str)
+        """
         try:
-            config = ConfigReader()
-            relative_path = config.get_data("PATH", "screenshot_path")
+            # Initialize ConfigReader to fetch screenshot path
+            config_reader = ConfigReader()
 
-            project_root = os.path.dirname(
+            # Read relative screenshot directory path from config.properties
+            screenshot_directory_relative_path = config_reader.get_config_value(
+                "PATH",
+                "screenshot_path"
+            )
+
+            # Resolve project root directory dynamically
+            project_root_directory = os.path.dirname(
                 os.path.dirname(os.path.abspath(__file__))
             )
 
-            screenshot_dir = os.path.join(project_root, relative_path)
-            os.makedirs(screenshot_dir, exist_ok=True)
+            # Construct absolute screenshot directory path
+            screenshot_directory_path = os.path.join(
+                project_root_directory,
+                screenshot_directory_relative_path
+            )
 
-            timestamp = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-            file_name = f"{name}_{timestamp}.png"
-            file_path = os.path.join(screenshot_dir, file_name)
+            # Create screenshot directory if it does not exist
+            os.makedirs(screenshot_directory_path, exist_ok=True)
 
-            driver.save_screenshot(file_path)
-            return file_path
+            # Generate timestamp for screenshot file naming
+            screenshot_timestamp = datetime.now().strftime(
+                "%Y_%m_%d_%H_%M_%S"
+            )
 
-        except Exception as e:
+            # Construct screenshot file name
+            screenshot_file_name = (
+                f"{screenshot_name}_{screenshot_timestamp}.png"
+            )
+
+            # Construct full screenshot file path
+            screenshot_file_absolute_path = os.path.join(screenshot_directory_path,screenshot_file_name)
+
+            # Capture and save browser screenshot
+            web_driver.save_screenshot(
+                screenshot_file_absolute_path
+            )
+
+            # Return saved screenshot file path
+            return screenshot_file_absolute_path
+
+        except Exception as exception:
+            # Raise meaningful exception if screenshot capture fails
             raise Exception(
-                f"Failed to capture screenshot '{name}': {e}"
+                f"Failed to capture screenshot '{screenshot_name}': "
+                f"{exception}"
             )
