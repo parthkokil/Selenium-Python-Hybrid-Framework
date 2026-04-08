@@ -3,41 +3,76 @@ from datetime import datetime
 import os
 from utilities.config_reader import ConfigReader
 
+
 """
-    Generates Logs inside logs folder 
-    Author:Gitika
+Method Name   : get_framework_logger
+Author        : Gitika
+Description   : Creates and returns a configured framework-level logger instance which writes logs to a timestamped log file
+Return Type   : logging.Logger
+Parameters    : None
 """
 
-def get_logger():
-    logger = logging.getLogger("framework_logger")
+def get_framework_logger():
+    # Create or retrieve the framework logger instance
+    framework_logger = logging.getLogger("framework_logger")
 
-    if logger.handlers:
-        return logger
+    # Prevent duplicate handlers if logger is already configured
+    if framework_logger.handlers:
+        return framework_logger
 
-    logger.setLevel(logging.INFO)
+    # Set logging level to INFO
+    framework_logger.setLevel(logging.INFO)
 
     try:
-        config = ConfigReader()
-        relative_log_path = config.get_data("PATH", "logger_path")
+        # Initialize ConfigReader to fetch logger path
+        config_reader = ConfigReader()
 
-        project_root = os.path.dirname(
+        # Read relative logger directory path from config.properties
+        logger_directory_relative_path = config_reader.get_config_value(
+            "PATH",
+            "logger_path"
+        )
+
+        # Resolve project root directory dynamically
+        project_root_directory = os.path.dirname(
             os.path.dirname(os.path.abspath(__file__))
         )
 
-        log_dir = os.path.join(project_root, relative_log_path)
-        os.makedirs(log_dir, exist_ok=True)
+        # Construct absolute path for logger directory
+        logger_directory_path = os.path.join(
+            project_root_directory,
+            logger_directory_relative_path
+        )
 
-        time_stamp = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        log_file = os.path.join(log_dir, f"log_{time_stamp}.log")
+        # Create logger directory if it does not exist
+        os.makedirs(logger_directory_path, exist_ok=True)
 
-        file_handler = logging.FileHandler(log_file)
-        formatter = logging.Formatter(
+        # Generate timestamp for log file naming
+        log_file_timestamp = datetime.now().strftime(
+            "%Y_%m_%d_%H_%M_%S"
+        )
+
+        # Construct full log file path
+        log_file_path = os.path.join(logger_directory_path,f"log_{log_file_timestamp}.log")
+
+        # Create file handler for logging into file
+        file_handler = logging.FileHandler(log_file_path)
+
+        # Define log message format
+        log_formatter = logging.Formatter(
             "%(asctime)s - %(levelname)s - %(message)s"
         )
-        file_handler.setFormatter(formatter)
 
-        logger.addHandler(file_handler)
-        return logger
+        # Apply formatter to file handler
+        file_handler.setFormatter(log_formatter)
 
-    except Exception as e:
-        raise Exception(f"Failed to initialize logger: {e}")
+        # Attach handler to the framework logger
+        framework_logger.addHandler(file_handler)
+
+        return framework_logger
+
+    except Exception as exception:
+        # Raise meaningful exception if logger initialization fails
+        raise Exception(
+            f"Failed to initialize framework logger: {exception}"
+        )
