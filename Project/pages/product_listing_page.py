@@ -399,6 +399,7 @@ class ProductListingPage:
         Parameters: None
         """
         try:
+            sleep(3)
             self.web_driver_helper.click_element(ProductListingLocators.first_product_link)
             self.logger.info("Verified First Product")
         except Exception as e:
