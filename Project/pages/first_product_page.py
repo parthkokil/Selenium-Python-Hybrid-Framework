@@ -275,7 +275,7 @@ class FirstProductPage:
         self.click_add_to_basket()
         self.click_check_out()
         self.verify_cart_page()
-        self.close_pop_up()
+        #self.close_pop_up()
         self.verify_the_text_continue_shopping()
 
 
@@ -334,7 +334,7 @@ class FirstProductPage:
         self.verify_product_availability()
         self.click_add_to_basket()
         self.click_checkout()
-        self.close_dynamic_popup_on_checkout()
+        #self.close_dynamic_popup_on_checkout()
 
     # Test Case 6
     def click_doll_add_to_basket(self):
