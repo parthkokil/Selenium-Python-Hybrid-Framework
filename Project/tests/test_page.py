@@ -7,16 +7,13 @@ from pages.product_listing_page import ProductListingPage
 from pages.footer_component import FooterComponentPage
 from utilities.logger import get_framework_logger
 from utilities.config_reader import ConfigReader
+from utilities.excel_reader import ExcelReader
+from uistore.home_locators import HomeLocators
+from uistore.first_product_locators import FirstProductPageLocators
 
 class TestCaseClass(BaseTest):
     logger = get_framework_logger()
-    """
-    Method Name   : setup_method
-    Author        : Parth
-    Description   : Sets up browser, loads application URL, applies timeout and maximizes window
-    Return Type   : None
-    Parameters    : None
-    """
+    
     def setUp(self):
         try:
             self.web_driver = self.setUpDriver()
@@ -32,148 +29,102 @@ class TestCaseClass(BaseTest):
             pytest.fail(f"Setup failed: {e}")
 
     def tearDown(self):
-        """
-        Method Name   : teardown_method
-        Author        : Parth
-        Description   : Closes browser after test execution
-        Return Type   : None
-        Parameters    : None
-        """
         try:
             if getattr(self, "web_driver", None):
                 self.web_driver.quit()
-
             self.logger.info("Browser closed successfully.")
-
         except Exception as e:
             self.logger.exception("Test teardown failed.")
 
+# # TestCase 1
+#     @pytest.mark.smoke
+#     def test_newborn_gift_page(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.verify_logo()
+#             home_page_obj.perform_action("HOVER", locator=HomeLocators.shop_by_age_link, element_name="Shop by age")
+#             home_page_obj.perform_action("CLICK", locator=HomeLocators.newborn_gifts_link, element_name="Newborn Gifts")
 
-    @pytest.mark.smoke
-    def test_newborn_gift_page(self):
-        """
-        Method Name :test_newborn_gift_page
-        Author        : Karuna Narayankar
-        Description   : Verifies newborn gifts page navigation and validates first product details.
-        Return Type   : None
-        Parameters    : None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.verify_logo()
-            home_page_obj.hover_on_shop_by_age()
-            home_page_obj.click_newborn_gifts()
+#             newborn_gift_page_object = ProductListingPage(self.web_driver, self.logger)
+#             newborn_gift_page_object.newborn_gift_page_clutter()
 
-            newborn_gift_page_object = ProductListingPage(self.web_driver, self.logger)
-            newborn_gift_page_object.newborn_gift_page_clutter()
+#             newborn_product_object = FirstProductPage(self.web_driver, self.logger)
+#             newborn_product_object.new_born_product_page_clutter()
 
-            newborn_product_object = FirstProductPage(self.web_driver, self.logger)
-            newborn_product_object.new_born_product_page_clutter()
+#         except Exception as e:
+#             self.logger.error(f"Error in test_newborn_gift_page: {e}")
+#             pytest.fail(str(e))
 
-        except Exception as e:
-            self.logger.error(f"Error in test_newborn_gift_page: {e}")
-            pytest.fail(str(e))
+# # TestCase 2
+#     @pytest.mark.smoke
+#     def test_soft_toy_page(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.verify_logo()
+#             home_page_obj.perform_action("HOVER", locator=HomeLocators.type_of_toy_link, element_name="Type of toy")
+#             home_page_obj.perform_action("CLICK", locator=HomeLocators.soft_toys_link, element_name="Soft Toys")
 
+#             soft_toy_page_object = ProductListingPage(self.web_driver, self.logger)
+#             soft_toy_page_object.soft_toys_page_clutter()
 
-    
-    @pytest.mark.smoke
-    def test_soft_toy_page(self):
-        """
-        Method Name   : test_soft_toy_page
-        Author        : Karuna Narayankar
-        Description   : Verifies soft toys category navigation and validates first soft toy product page.
-        Return Type   : None
-        Parameters    : None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.verify_logo()
-            home_page_obj.hover_on_type_of_toy()
-            home_page_obj.click_soft_toys_category()
+#             soft_toy_product_object = FirstProductPage(self.web_driver, self.logger)
+#             soft_toy_product_object.soft_toy_product_page_clutter()
 
-            soft_toy_page_object = ProductListingPage(self.web_driver, self.logger)
-            soft_toy_page_object.soft_toys_page_clutter()
+#         except Exception as e:
+#             self.logger.error(f"Error in test_soft_toy_page: {e}")
+#             pytest.fail(str(e))
 
-            soft_toy_product_object = FirstProductPage(self.web_driver, self.logger)
-            soft_toy_product_object.soft_toy_product_page_clutter()
+# # TestCase 3
+#     @pytest.mark.smoke
+#     def test_of_outdoor_toys(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.verify_logo()
+#             home_page_obj.perform_action("HOVER", locator=HomeLocators.outdoor_toys_link, element_name="Outdoor Toys")
+#             home_page_obj.perform_action("CLICK", locator=HomeLocators.bikes_link, element_name="Bikes")
 
-        except Exception as e:
-            self.logger.error(f"Error in test_soft_toy_page: {e}")
-            pytest.fail(str(e))
+#             outdoor_toys_product_listing_obj = ProductListingPage(self.web_driver, self.logger)
+#             outdoor_toys_product_listing_obj.outdoor_toys_product_listing_page_flow()
 
-   
-    @pytest.mark.smoke
-    def test_of_outdoor_toys(self):
-        """
-        Method name: test_of_outdoor_toys
-        Author name: Saptarshi
-        Description : Executes the complete flow for third test case
-        Return type: None
-        Parameter list: None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.verify_logo()
-            home_page_obj.hover_on_outdoor_toys()
-            home_page_obj.click_on_bikes()
+#             outdoor_toys_first_product_obj = FirstProductPage(self.web_driver, self.logger)
+#             outdoor_toys_first_product_obj.outdoor_toys_first_product_page_clutter_flow()
 
-            outdoor_toys_product_listing_obj = ProductListingPage(self.web_driver, self.logger)
-            outdoor_toys_product_listing_obj.outdoor_toys_product_listing_page_flow()
+#         except Exception as e:
+#             self.logger.error(f"Failed in test_of_third_test_case: {e}")
+#             pytest.fail(str(e))
 
-            outdoor_toys_first_product_obj = FirstProductPage(self.web_driver, self.logger)
-            outdoor_toys_first_product_obj.outdoor_toys_first_product_page_clutter_flow()
+# # TestCase 4
+#     @pytest.mark.smoke
+#     def test_of_creativity_products(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.verify_logo()
+#             home_page_obj.perform_action("HOVER", locator=HomeLocators.learning_skills_link, element_name="Learning Skills")
+#             home_page_obj.perform_action("CLICK", locator=HomeLocators.creativity_link, element_name="Creativity")
 
-        except Exception as e:
-            self.logger.error(f"Failed in test_of_third_test_case: {e}")
-            pytest.fail(str(e))
+#             creativity_page_obj = ProductListingPage(self.web_driver, self.logger)
+#             creativity_page_obj.creativity_products_listing_page_flow()
 
-    
-    
-    @pytest.mark.smoke
-    def test_of_creativity_products(self):
-        """
-        Method name: test_of_creativity_products
-        Author name: Saptarshi
-        Description : Executes the complete flow for fourth test case.
-        Return type: None
-        Parameter list: None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.verify_logo()
-            home_page_obj.hover_on_learning_skills()
-            home_page_obj.click_on_creativity()
+#             cart_page_obj = FirstProductPage(self.web_driver, self.logger)
+#             cart_page_obj.creativity_first_product_page_clutter_flow()
 
-            creativity_page_obj = ProductListingPage(self.web_driver, self.logger)
-            creativity_page_obj.creativity_products_listing_page_flow()
+#         except Exception as e:
+#             self.logger.error(f"Failed in test_of_fourth_case: {e}")
+#             pytest.fail(str(e))
 
-            cart_page_obj = FirstProductPage(self.web_driver, self.logger)
-            cart_page_obj.creativity_first_product_page_clutter_flow()
-
-        except Exception as e:
-            self.logger.error(f"Failed in test_of_fourth_case: {e}")
-            pytest.fail(str(e))
-
-    
+# TestCase 5
     @pytest.mark.smoke
     def test_paw_patrol_product_add_to_basket_flow(self):
-        """
-        Method Name   : test_paw_patrol_product_add_to_basket_flow
-        Author        : Gitika Thakur
-        Description   : Verifies Paw Patrol product add-to-basket and basket verification flow.
-        Return Type   : None
-        Parameters    : None
-        """
         try:
             home_page_navigation_actions_obj = HomePage(self.web_driver, self.logger)
-            home_page_navigation_actions_obj.close_popup()
+            home_page_navigation_actions_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
             home_page_navigation_actions_obj.verify_logo()
-            home_page_navigation_actions_obj.hover_on_brands_navigation()
-            home_page_navigation_actions_obj.click_paw_patrol_brand()
+            home_page_navigation_actions_obj.perform_action("HOVER", locator=HomeLocators.brands_navigation_link, element_name="Brands")
+            home_page_navigation_actions_obj.perform_action("CLICK", locator=HomeLocators.paw_patrol_brand_link, element_name="Paw Patrol")
 
             paw_patrol_product_listing_actions_obj = ProductListingPage(self.web_driver, self.logger)
             paw_patrol_product_listing_actions_obj.paw_patrol_product_listing_flow()
@@ -185,134 +136,122 @@ class TestCaseClass(BaseTest):
             self.logger.error(f"Error in test_paw_patrol_product_add_to_basket_flow: {e}")
             pytest.fail(str(e))
 
-    
-    @pytest.mark.smoke
-    def test_dolls_product_checkout_flow(self):
-        """
-        Method Name   : test_dolls_product_checkout_flow
-        Author        : Gitika Thakur
-        Description   : Verifies Dolls category product selection, add-to-basket, and order summary verification flow.
-        Return Type   : None
-        Parameters    : None
-        """
-        try:
-            home_page_explore_navigation_actions_obj = HomePage(self.web_driver, self.logger)
-            home_page_explore_navigation_actions_obj.close_popup()
-            home_page_explore_navigation_actions_obj.verify_logo()
-            home_page_explore_navigation_actions_obj.hover_on_explore_navigation()
-            home_page_explore_navigation_actions_obj.click_gift_cards_navigation()
+# # TestCase 6
+#     @pytest.mark.smoke
+#     def test_dolls_product_checkout_flow(self):
+#         try:
+#             home_page_explore_navigation_actions_obj = HomePage(self.web_driver, self.logger)
+#             home_page_explore_navigation_actions_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_explore_navigation_actions_obj.verify_logo()
+#             home_page_explore_navigation_actions_obj.perform_action("HOVER", locator=HomeLocators.explore_navigation_link, element_name="Explore")
+#             home_page_explore_navigation_actions_obj.perform_action("CLICK", locator=HomeLocators.gift_cards_navigation_link, element_name="Gift Cards")
 
-            dolls_product_selection_actions_obj = ProductListingPage(self.web_driver, self.logger)
-            dolls_product_selection_actions_obj.click_offers_and_verify_brands_section()
-            dolls_product_selection_actions_obj.click_dolls_category()
-            dolls_product_selection_actions_obj.click_first_doll_product_card()
+#             dolls_product_selection_actions_obj = ProductListingPage(self.web_driver, self.logger)
+#             dolls_product_selection_actions_obj.click_offers_and_verify_brands_section()
+#             dolls_product_selection_actions_obj.click_dolls_category()
+#             dolls_product_selection_actions_obj.click_first_doll_product_card()
 
-            dolls_first_product_click_actions_obj = FirstProductPage(self.web_driver, self.logger)
-            dolls_first_product_click_actions_obj.gift_cards_first_product_page_flow()
+#             dolls_first_product_click_actions_obj = FirstProductPage(self.web_driver, self.logger)
+#             dolls_first_product_click_actions_obj.gift_cards_first_product_page_flow()
 
-        except Exception as e:
-            self.logger.error(f"Error in test_dolls_product_checkout_flow: {e}")
-            pytest.fail(str(e))
+#         except Exception as e:
+#             self.logger.error(f"Error in test_dolls_product_checkout_flow: {e}")
+#             pytest.fail(str(e))
 
+# # TestCase 7
+#     @pytest.mark.smoke
+#     def test_puzzles_search_functionality_flow(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.verify_logo()
+            
+#             excel = ExcelReader()
+#             home_page_obj.perform_action(
+#                 "SEARCH_AND_SUBMIT", 
+#                 locator=HomeLocators.search_input_field, 
+#                 element_name="Search", 
+#                 expected_text=excel.get_cell_value("ashutoshExcel", 2, 3),
+#                 search_icon_locator=HomeLocators.search_icon
+#             )
 
-    
-    @pytest.mark.smoke
-    def test_puzzles_search_functionality_flow(self):
-        """
-        Method Name   : test_puzzles_search_functionality_flow
-        Author        : Ashutosh
-        Description   : Validates puzzles search flow and verifies wishlist + learning section on first product.
-        Return Type   : None
-        Parameters    : None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.verify_logo()
-            home_page_obj.click_search_input_field()
-            home_page_obj.enter_search_text_and_submit_for_puzzles()
+#             puzzle_product_page_obj = ProductListingPage(self.web_driver, self.logger)
+#             puzzle_product_page_obj.work_flow_for_puzzles_product_page()
 
-            puzzle_product_page_obj = ProductListingPage(self.web_driver, self.logger)
-            puzzle_product_page_obj.work_flow_for_puzzles_product_page()
+#             puzzle_first_product_page_obj = FirstProductPage(self.web_driver, self.logger)
+#             puzzle_first_product_page_obj.perform_action("CLICK", locator=FirstProductPageLocators.add_to_wishlist_button, element_name="Add to Wishlist")
+#             puzzle_first_product_page_obj.perform_action("VERIFY_TEXT", 
+#                 locator=FirstProductPageLocators.learning_description_text, 
+#                 element_name="Learning Description", 
+#                 expected_text=excel.get_cell_value("ashutoshExcel", 2, 1),
+#                 capture_screenshot=True
+#             )
 
-            puzzle_first_product_page_obj = FirstProductPage(self.web_driver, self.logger)
-            puzzle_first_product_page_obj.add_product_to_wishlist()
-            puzzle_first_product_page_obj.verify_learning()
+#         except Exception as e:
+#             self.logger.error(f"Error in test_puzzles_search_functionality_flow: {e}")
+#             pytest.fail(str(e))
 
-        except Exception as e:
-            self.logger.error(f"Error in test_puzzles_search_functionality_flow: {e}")
-            pytest.fail(str(e))
+# # TestCase 8
+#     @pytest.mark.smoke
+#     def test_cars_search_functionality_flow(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.verify_logo()
+            
+#             excel = ExcelReader()
+#             home_page_obj.perform_action(
+#                 "SEARCH_AND_SUBMIT", 
+#                 locator=HomeLocators.search_input_field, 
+#                 element_name="Search", 
+#                 expected_text=excel.get_cell_value("ashutoshExcel", 3, 3),
+#                 search_icon_locator=HomeLocators.search_icon_button
+#             )
 
-   
-    @pytest.mark.smoke
-    def test_cars_search_functionality_flow(self):
-        """
-        Method Name   : test_cars_search_functionality_flow
-        Author        : Ashutosh
-        Description   : Validates cars search functionality flow and verifies first product wishlist action.
-        Return Type   : None
-        Parameters    : None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.verify_logo()
-            home_page_obj.click_search_input_field()
-            home_page_obj.enter_search_text_and_submit_for_cars()
+#             car_product_page_obj = ProductListingPage(self.web_driver, self.logger)
+#             car_product_page_obj.work_flow()
 
-            car_product_page_obj = ProductListingPage(self.web_driver, self.logger)
-            car_product_page_obj.work_flow()
+#             car_first_product_page_obj = FirstProductPage(self.web_driver, self.logger)
+#             car_first_product_page_obj.perform_action("VERIFY_TEXT", 
+#                 locator=FirstProductPageLocators.product_heading_text, 
+#                 element_name="Product Heading", 
+#                 expected_text=excel.get_cell_value("ashutoshExcel", 3, 1),
+#                 capture_screenshot=True
+#             )
+#             car_first_product_page_obj.perform_action("CLICK", locator=FirstProductPageLocators.add_to_wishlist_button, element_name="Add to Wishlist")
 
-            car_first_product_page_obj = FirstProductPage(self.web_driver, self.logger)
-            car_first_product_page_obj.verify_heading()
-            car_first_product_page_obj.click_on_add_to_wishlist()
+#         except Exception as e:
+#             self.logger.error(f"Error in test_cars_search_functionality_flow: {e}")
+#             pytest.fail(str(e))
 
-        except Exception as e:
-            self.logger.error(f"Error in test_cars_search_functionality_flow: {e}")
-            pytest.fail(str(e))
+# # TestCase 9
+#     @pytest.mark.smoke
+#     def test_elc_footer_help_link_navigation(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.perform_action("SCROLL_AND_CLICK", locator=HomeLocators.footer_top, element_name="Footer", click=False)
+#             home_page_obj.perform_action("SCROLL_AND_CLICK", locator=HomeLocators.footer_contact_us_link, element_name="Contact Us")
 
+#             footer_help_link_obj = FooterComponentPage(self.web_driver, self.logger)
+#             footer_help_link_obj.elc_footer_help_links_flow()
 
+#         except Exception as e:
+#             self.logger.error(f"Test Case 9 failed due to error: {e}")
+#             pytest.fail(str(e))
 
-    @pytest.mark.smoke
-    def test_elc_footer_help_link_navigation(self):
-        """
-        Method Name   : test_elc_footer_help_link_navigation
-        Author        : Sasi Kumar
-        Description   : Verifies footer help link navigation flow.
-        Return Type   : None
-        Parameters    : None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.scroll_footer()
-            home_page_obj.open_contact_us_page()
+# # TestCase 10
+#     @pytest.mark.smoke
+#     def test_footer_links_navigation(self):
+#         try:
+#             home_page_obj = HomePage(self.web_driver, self.logger)
+#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+#             home_page_obj.perform_action("SCROLL_AND_CLICK", locator=HomeLocators.footer_top, element_name="Footer", click=False)
+#             home_page_obj.perform_action("SCROLL_AND_CLICK", locator=HomeLocators.about_us_link, element_name="About Us")
 
-            footer_help_link_obj = FooterComponentPage(self.web_driver, self.logger)
-            footer_help_link_obj.elc_footer_help_links_flow()
+#             footer_page = FooterComponentPage(self.web_driver, self.logger)
+#             footer_page.run_footer_links_flow()
 
-        except Exception as e:
-            self.logger.error(f"Test Case 9 failed due to error: {e}")
-            pytest.fail(str(e))
-
-    @pytest.mark.smoke
-    def test_footer_links_navigation(self):
-        """
-        Method Name   : test_footer_links_navigation
-        Author        : Parth
-        Description   : Verifies footer links navigation flow (About Us + footer links).
-        Return Type   : None
-        Parameters    : None
-        """
-        try:
-            home_page_obj = HomePage(self.web_driver, self.logger)
-            home_page_obj.close_popup()
-            home_page_obj.scroll_footer()
-            home_page_obj.click_on_about_us()
-
-            footer_page = FooterComponentPage(self.web_driver, self.logger)
-            footer_page.run_footer_links_flow()
-
-        except Exception as e:
-            self.logger.error(f"Test Case 10 failed due to error: {e}")
-            pytest.fail(str(e))
+#         except Exception as e:
+#             self.logger.error(f"Test Case 10 failed due to error: {e}")
+#             pytest.fail(str(e))
