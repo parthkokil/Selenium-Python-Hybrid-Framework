@@ -38,6 +38,7 @@ class FirstProductPage(BasePage):
 
     #  Test Case 4
     def creativity_first_product_page_clutter_flow(self):
+<<<<<<< HEAD
         self.perform_action("VERIFY_TEXT", FirstProductPageLocators.add_to_basket_button, "Add to Basket Button",expected_text=self.excel_reader.get_cell_value("saptarshiexcel", 4, 1))
         self.perform_action("CLICK", FirstProductPageLocators.add_to_basket, "Add to Basket")
         self.perform_action("SCROLL_AND_CLICK", FirstProductPageLocators.checkout_button, "Check Out Button")
@@ -51,6 +52,79 @@ class FirstProductPage(BasePage):
         self.perform_action("CLICK", FirstProductPageLocators.add_to_basket, "Add to Basket")
         self.perform_action("CLICK", FirstProductPageLocators.checkout_button, "Checkout")
         self.perform_action("CLOSE_POPUP", FirstProductPageLocators.close_dynamic_popup_button, "Dynamic Checkout Popup")
+=======
+        """
+            Method Name   : outdoor_toys_first_product_page_clutter_flow
+            Author        : Saptarshi
+            Description   : Clutter function for the outdoor toys first product operations page
+            Return Type   : None
+            Parameters    : None
+        """
+        self.verify_the_add_basket_button()
+        self.click_add_to_basket()
+        self.click_check_out()
+        self.verify_cart_page()
+        #self.close_pop_up()
+        self.verify_the_text_continue_shopping()
+
+
+    # Test Case 5
+    def verify_product_availability(self):
+        """
+            Method Name   : verify_product_availability
+            Author        : Gitika Thakur
+            Description   : Verifies whether the product is available for purchase
+            Return Type   : None
+            Parameters    : None
+        """
+        try:
+            self.web_driver_helper.verify_text_contains(FirstProductPageLocators.store_availability_text,self.excel_reader.get_cell_value("gitikaexcel",2,1))
+            self.logger.info("Product availability verified")
+        except Exception as e:
+            self.logger.exception("Availability verification failed")
+            raise AssertionError("Product not available") from e
+    def click_checkout(self):
+        """
+            Method Name   : click_checkout
+            Author        : Gitika Thakur
+            Description   : Clicks on Checkout button from basket page
+            Return Type   : None
+            Parameters    : None
+        """
+        try:
+            self.web_driver_helper.click_element(FirstProductPageLocators.checkout_button)
+            self.logger.info("Clicked Checkout")
+        except Exception as e:
+            self.logger.exception("Checkout click failed")
+            raise AssertionError("Unable to click Checkout") from e
+    def close_dynamic_popup_on_checkout(self):
+        """
+            # Method Name   : close_dynamic_popup_on_checkout
+            # Author        : Gitika Thakur
+            # Description   : Closes dynamic popup displayed on checkout page
+            # Return Type   : None
+            # Parameters    : None
+        """
+        try:
+            self.web_driver_helper.click_element(FirstProductPageLocators.close_dynamic_popup_button)
+            self.logger.info("Dynamic popup closed successfully")
+            Screenshot.capture_browser_screenshot(self.web_driver,"basket_page")
+        except Exception as e:
+            self.logger.exception("Failed to close dynamic popup")
+            raise AssertionError("Dynamic popup close failed") from e
+    def paw_patrol_first_product_page_flow(self):
+        """
+            Method Name   : paw_patrol_first_product_page_flow
+            Author        : Gitika Thakur
+            Description   : Clutter function for the paw patrol first product page
+            Return Type   : None
+            Parameters    : None
+        """
+        self.verify_product_availability()
+        self.click_add_to_basket()
+        self.click_checkout()
+        #self.close_dynamic_popup_on_checkout()
+>>>>>>> 9c9e1497603bd3e5246f5edaa826771f2119d0b6
 
     #  Test Case 6
     def gift_cards_first_product_page_flow(self):
