@@ -6,6 +6,8 @@ class FooterLocators:
     # Useful Links keyword
     useful_links_text = (By.XPATH, "//*[normalize-space()='Useful links']")
 
+    
+
     # Footer Links
     footer_store_finder_link = (By.CSS_SELECTOR, "a[title='Store finder']")
     footer_wee_regulations_link = (By.XPATH, "//a[contains(@href,'/weee')]")
@@ -15,10 +17,9 @@ class FooterLocators:
     footer_gift_cards_link = (By.XPATH, "//ul[@id='footerNavList2']/li/a[@title='Gift cards']")
     footer_klarna_link = (By.XPATH, "//a[contains(@href,'/klarna')]")
 
-    # for test case 9
 
     # footer help section links
-
+    
     footer_delivery_options_link = (By.XPATH,"//ul[@class='footer__nav--links collapse']//a[text()='Delivery Options']")
     footer_product_safety_notices_link = (By.XPATH, "//a[contains(@href,'/product-safety-notices')]")
     footer_returns_link = (By.XPATH, "//ul[@id='footerNavList0']/li/a[text()='Returns']")
