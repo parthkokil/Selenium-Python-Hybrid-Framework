@@ -37,24 +37,24 @@ class TestCaseClass(BaseTest):
             self.logger.exception("Test teardown failed.")
 
 # # TestCase 1
-#     @pytest.mark.smoke
-#     def test_newborn_gift_page(self):
-#         try:
-#             home_page_obj = HomePage(self.web_driver, self.logger)
-#             home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
-#             home_page_obj.verify_logo()
-#             home_page_obj.perform_action("HOVER", locator=HomeLocators.shop_by_age_link, element_name="Shop by age")
-#             home_page_obj.perform_action("CLICK", locator=HomeLocators.newborn_gifts_link, element_name="Newborn Gifts")
+    @pytest.mark.smoke
+    def test_newborn_gift_page(self):
+        try:
+            home_page_obj = HomePage(self.web_driver, self.logger)
+            home_page_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+            home_page_obj.verify_logo()
+            home_page_obj.perform_action("HOVER", locator=HomeLocators.shop_by_age_link, element_name="Shop by age")
+            home_page_obj.perform_action("CLICK", locator=HomeLocators.newborn_gifts_link, element_name="Newborn Gifts")
 
-#             newborn_gift_page_object = ProductListingPage(self.web_driver, self.logger)
-#             newborn_gift_page_object.newborn_gift_page_clutter()
+            newborn_gift_page_object = ProductListingPage(self.web_driver, self.logger)
+            newborn_gift_page_object.newborn_gift_page_clutter()
 
-#             newborn_product_object = FirstProductPage(self.web_driver, self.logger)
-#             newborn_product_object.new_born_product_page_clutter()
+            newborn_product_object = FirstProductPage(self.web_driver, self.logger)
+            newborn_product_object.new_born_product_page_clutter()
 
-#         except Exception as e:
-#             self.logger.error(f"Error in test_newborn_gift_page: {e}")
-#             pytest.fail(str(e))
+        except Exception as e:
+            self.logger.error(f"Error in test_newborn_gift_page: {e}")
+            pytest.fail(str(e))
 
 # # TestCase 2
 #     @pytest.mark.smoke
@@ -117,24 +117,24 @@ class TestCaseClass(BaseTest):
 #             pytest.fail(str(e))
 
 # TestCase 5
-    @pytest.mark.smoke
-    def test_paw_patrol_product_add_to_basket_flow(self):
-        try:
-            home_page_navigation_actions_obj = HomePage(self.web_driver, self.logger)
-            home_page_navigation_actions_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
-            home_page_navigation_actions_obj.verify_logo()
-            home_page_navigation_actions_obj.perform_action("HOVER", locator=HomeLocators.brands_navigation_link, element_name="Brands")
-            home_page_navigation_actions_obj.perform_action("CLICK", locator=HomeLocators.paw_patrol_brand_link, element_name="Paw Patrol")
+    # @pytest.mark.smoke
+    # def test_paw_patrol_product_add_to_basket_flow(self):
+    #     try:
+    #         home_page_navigation_actions_obj = HomePage(self.web_driver, self.logger)
+    #         home_page_navigation_actions_obj.perform_action("CLOSE_POPUP", locator=HomeLocators.pop_up_button, element_name="Welcome Popup")
+    #         home_page_navigation_actions_obj.verify_logo()
+    #         home_page_navigation_actions_obj.perform_action("HOVER", locator=HomeLocators.brands_navigation_link, element_name="Brands")
+    #         home_page_navigation_actions_obj.perform_action("CLICK", locator=HomeLocators.paw_patrol_brand_link, element_name="Paw Patrol")
 
-            paw_patrol_product_listing_actions_obj = ProductListingPage(self.web_driver, self.logger)
-            paw_patrol_product_listing_actions_obj.paw_patrol_product_listing_flow()
+    #         paw_patrol_product_listing_actions_obj = ProductListingPage(self.web_driver, self.logger)
+    #         paw_patrol_product_listing_actions_obj.paw_patrol_product_listing_flow()
 
-            add_to_basket_actions_obj = FirstProductPage(self.web_driver, self.logger)
-            add_to_basket_actions_obj.paw_patrol_first_product_page_flow()
+    #         add_to_basket_actions_obj = FirstProductPage(self.web_driver, self.logger)
+    #         add_to_basket_actions_obj.paw_patrol_first_product_page_flow()
 
-        except Exception as e:
-            self.logger.error(f"Error in test_paw_patrol_product_add_to_basket_flow: {e}")
-            pytest.fail(str(e))
+    #     except Exception as e:
+    #         self.logger.error(f"Error in test_paw_patrol_product_add_to_basket_flow: {e}")
+    #         pytest.fail(str(e))
 
 # # TestCase 6
 #     @pytest.mark.smoke

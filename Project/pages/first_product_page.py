@@ -1,6 +1,7 @@
 from pages.base_page import BasePage
 from uistore.first_product_locators import FirstProductPageLocators
 from time import sleep
+from utilities.screenshot import Screenshot
 
 class FirstProductPage(BasePage):
     """
@@ -63,7 +64,7 @@ class FirstProductPage(BasePage):
             Parameters    : None
         """
         try:
-            self.web_driver_helper.verify_text_contains(FirstProductPageLocators.store_availability_text,self.excel_reader.get_cell_value("gitikaexcel",2,1))
+            self.web_driver_helper.verify_text_contains(FirstProductPageLocators.product_availability_in_store_text,self.excel_reader.get_cell_value("gitikaexcel",2,1))
             self.logger.info("Product availability verified")
         except Exception as e:
             self.logger.exception("Availability verification failed")

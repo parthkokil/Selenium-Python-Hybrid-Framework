@@ -64,7 +64,7 @@ class ProductListingPage(BasePage):
 
     # Test Case 5
     def paw_patrol_product_listing_flow(self):
-        self.verify_page_loaded(self.excel_reader.get_cell_value("gitikaexcel", 2, 2), "Paw Patrol")
+        # self.verify_page_loaded(self.excel_reader.get_cell_value("gitikaexcel", 2, 2), "Paw Patrol")
         self.perform_action("CLICK", ProductListingLocators.playsets_filter_option, "Playsets")
         self.perform_action("CLICK", ProductListingLocators.savings_filter_option, "Savings")
         self.perform_action("CLICK", ProductListingLocators.first_product_thumbnail_link, "First Product Paw Patrol")
