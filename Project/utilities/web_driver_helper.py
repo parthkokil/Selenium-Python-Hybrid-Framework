@@ -11,6 +11,7 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
 
 
 class WebDriverHelper:
@@ -93,18 +94,32 @@ class WebDriverHelper:
         """
         Method Name   : click_element
         Author        : Parth
-        Description   : Clicks on an element after it becomes clickable
+        Description   : Clicks on an element after it becomes clickable.
+                        Handles StaleElementReferenceException by RE-FINDING
+                        the element on each retry attempt.
         Return Type   : None
         Parameters    : element_locator(tuple)
         """
-        try:
-            clickable_element = self.web_driver_wait.until(
-                EC.element_to_be_clickable(element_locator)
-            )
-            self.retry_on_stale_click(clickable_element)
-        except (TimeoutException, WebDriverException, RuntimeError) as exception:
-            traceback.print_exc()
-            raise Exception(f"Failed to click element {element_locator}: {exception}")
+        attempts = 0
+        while attempts < self.MAX_RETRIES:
+            try:
+                # Re-find the element every retry (this is the key fix!)
+                clickable_element = self.web_driver_wait.until(
+                    EC.element_to_be_clickable(element_locator)
+                )
+                clickable_element.click()
+                return
+            except StaleElementReferenceException:
+                attempts += 1
+                sleep(1)  # Small pause to let DOM settle
+                if attempts == self.MAX_RETRIES:
+                    raise Exception(
+                        f"Element {element_locator} remained stale after {self.MAX_RETRIES} retries"
+                    )
+            except (TimeoutException, WebDriverException) as exception:
+                traceback.print_exc()
+                raise Exception(f"Failed to click element {element_locator}: {exception}")
+
 
     def enter_text(self, element_locator, input_text):
         """
@@ -296,7 +311,7 @@ class WebDriverHelper:
             traceback.print_exc()
             raise Exception(f"Attribute verification failed: {exception}")
 
-    def is_footer_visible_by_tag_name(self, tag_name, timeout=1):
+    def is_footer_visible_by_tag_name(self, tag_name, timeout=4):
         """
         Method Name   : is_footer_visible_by_tag_name
         Author        : Parth

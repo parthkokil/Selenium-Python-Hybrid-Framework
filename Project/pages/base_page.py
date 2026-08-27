@@ -68,16 +68,25 @@ class BasePage:
                     else:
                         raise ValueError(f"Locator missing for action: {action_type}")
 
-                # search action
+                # search action - types text and submits via JS form submit
                 case "SEARCH_AND_SUBMIT":
                     if locator and expected_text:
+                        # Wait for search field to be visible before interacting
+                        self.web_driver_helper.wait_for_element_visibility(locator)
                         self.web_driver_helper.click_element(locator)
                         self.web_driver_helper.enter_text(locator, expected_text)
-                        
+
+                        # Submit the search — use icon click OR fallback to JS form submit
                         search_icon = kwargs.get("search_icon_locator")
                         if search_icon:
-                            self.web_driver_helper.click_element(search_icon)
-                        
+                            sleep(1)  # Let autocomplete render
+                            self.web_driver_helper.click_element_using_javascript(search_icon)
+                        else:
+                            # Fallback: submit form directly via JavaScript
+                            self.web_driver.execute_script(
+                                "document.querySelector('form[role=\"search\"]').submit();"
+                            )
+
                         self.logger.info(f"Searched for '{expected_text}' successfully")
                     else:
                         raise ValueError(f"Locator or text missing for action: {action_type}")

@@ -1,0 +1,18 @@
+# ==============================================================================
+# ELC Hybrid Automation Framework — Python Dependencies
+# ------------------------------------------------------------------------------
+# Install everything with:  pip install -r requirements.txt
+# ==============================================================================
+
+# --- Core Browser Automation ---
+selenium==4.25.0                # Controls Chrome & interacts with web elements
+webdriver-manager==4.1.2        # Auto-downloads the correct ChromeDriver
+
+# --- Test Runner ---
+pytest==9.1.1                   # Discovers & runs the test cases
+
+# --- Reporting ---
+allure-pytest==2.16.0           # Generates Allure result files for HTML reports
+
+# --- Test Data Handling ---
+openpyxl==3.1.5                 # Reads test data from the Excel (.xlsx) file

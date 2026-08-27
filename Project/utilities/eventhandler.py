@@ -9,5 +9,3 @@ class EventHandler(AbstractEventListener):
 
     def after_navigate_to(self, url, driver):
         print("After navigating to:", url)
-
-    # Implement other methods as needed
